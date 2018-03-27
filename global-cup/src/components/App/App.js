@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import axios from 'axios'
+// import axios from 'axios'
 import Container from '../Container/Container'
 import Logo from '../Logo/Logo'
 import NavBar from '../NavBar/NavBar'
@@ -17,7 +17,13 @@ class App extends Component {
         <header>
           <h1 className="App-title">Global Cup!</h1>
         </header>
+<<<<<<< HEAD
         <TeamFrom />
+=======
+        <div className="navbar">
+          <NavBar />
+        </div>
+>>>>>>> master
       </div>
     )
   }
