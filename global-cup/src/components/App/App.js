@@ -6,6 +6,7 @@ import NavBar from '../NavBar/NavBar'
 import Roster from '../Roster/Roster'
 import TeamFrom from '../TeamForm/TeamForm'
 import './App.css'
+import TeamInfo from '../TeamInfo/TeamInfo'
 
 class App extends Component {
   constructor() {
@@ -22,6 +23,7 @@ class App extends Component {
           <NavBar />
         </div>
         <TeamFrom />
+        <TeamInfo />
       </div>
     )
   }

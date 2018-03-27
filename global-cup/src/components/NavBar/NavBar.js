@@ -7,7 +7,7 @@ class NavBar extends Component {
       <div className="nav">
         <a>Home</a>
         <a>Instructions</a>
-        <a>Teams</a>
+        <a>Add Teams</a>
       </div>
     )
   }
