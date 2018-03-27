@@ -162,12 +162,16 @@ class TeamForm extends Component {
               placeholder="Last Name"
               onChange={this.handleInput}
             />
-            <input
-              type="text"
+            <select
               name="position2"
-              placeholder="Position"
+              value={this.state.position2}
               onChange={this.handleInput}
-            />
+            >
+              <option value="F">Forward</option>
+              <option value="M">Midfielder</option>
+              <option value="D">Defender</option>
+              <option value="GK">Goalkeeper</option>
+            </select>
           </div>
           <div>
             <label htmlFor="players">Player 3:</label>
@@ -183,12 +187,16 @@ class TeamForm extends Component {
               placeholder="Last Name"
               onChange={this.handleInput}
             />
-            <input
-              type="text"
+            <select
               name="position3"
-              placeholder="Position"
+              value={this.state.position3}
               onChange={this.handleInput}
-            />
+            >
+              <option value="F">Forward</option>
+              <option value="M">Midfielder</option>
+              <option value="D">Defender</option>
+              <option value="GK">Goalkeeper</option>
+            </select>
           </div>
           <div>
             <label htmlFor="players">Player 4:</label>
@@ -204,12 +212,16 @@ class TeamForm extends Component {
               placeholder="Last Name"
               onChange={this.handleInput}
             />
-            <input
-              type="text"
+            <select
               name="position4"
-              placeholder="Position"
+              value={this.state.position4}
               onChange={this.handleInput}
-            />
+            >
+              <option value="F">Forward</option>
+              <option value="M">Midfielder</option>
+              <option value="D">Defender</option>
+              <option value="GK">Goalkeeper</option>
+            </select>
           </div>
           <div>
             <label htmlFor="players">Player 5:</label>
@@ -225,12 +237,16 @@ class TeamForm extends Component {
               placeholder="Last Name"
               onChange={this.handleInput}
             />
-            <input
-              type="text"
+            <select
               name="position5"
-              placeholder="Position"
+              value={this.state.position5}
               onChange={this.handleInput}
-            />
+            >
+              <option value="F">Forward</option>
+              <option value="M">Midfielder</option>
+              <option value="D">Defender</option>
+              <option value="GK">Goalkeeper</option>
+            </select>
           </div>
           <div>
             <label htmlFor="players">Player 6:</label>
@@ -246,12 +262,16 @@ class TeamForm extends Component {
               placeholder="Last Name"
               onChange={this.handleInput}
             />
-            <input
-              type="text"
+            <select
               name="position6"
-              placeholder="Position"
+              value={this.state.position6}
               onChange={this.handleInput}
-            />
+            >
+              <option value="F">Forward</option>
+              <option value="M">Midfielder</option>
+              <option value="D">Defender</option>
+              <option value="GK">Goalkeeper</option>
+            </select>
           </div>
           <div>
             <label htmlFor="players">Player 7:</label>
@@ -267,12 +287,16 @@ class TeamForm extends Component {
               placeholder="Last Name"
               onChange={this.handleInput}
             />
-            <input
-              type="text"
+            <select
               name="position7"
-              placeholder="Position"
+              value={this.state.position7}
               onChange={this.handleInput}
-            />
+            >
+              <option value="F">Forward</option>
+              <option value="M">Midfielder</option>
+              <option value="D">Defender</option>
+              <option value="GK">Goalkeeper</option>
+            </select>
           </div>
           <div>
             <label htmlFor="players">Player 8:</label>
@@ -288,12 +312,16 @@ class TeamForm extends Component {
               placeholder="Last Name"
               onChange={this.handleInput}
             />
-            <input
-              type="text"
+            <select
               name="position8"
-              placeholder="Position"
+              value={this.state.position8}
               onChange={this.handleInput}
-            />
+            >
+              <option value="F">Forward</option>
+              <option value="M">Midfielder</option>
+              <option value="D">Defender</option>
+              <option value="GK">Goalkeeper</option>
+            </select>
           </div>
           <div>
             <label htmlFor="players">Player 9:</label>
@@ -309,12 +337,16 @@ class TeamForm extends Component {
               placeholder="Last Name"
               onChange={this.handleInput}
             />
-            <input
-              type="text"
+            <select
               name="position9"
-              placeholder="Position"
+              value={this.state.position9}
               onChange={this.handleInput}
-            />
+            >
+              <option value="F">Forward</option>
+              <option value="M">Midfielder</option>
+              <option value="D">Defender</option>
+              <option value="GK">Goalkeeper</option>
+            </select>
           </div>
           <div>
             <label htmlFor="players">Player 10:</label>
@@ -330,12 +362,16 @@ class TeamForm extends Component {
               placeholder="Last Name"
               onChange={this.handleInput}
             />
-            <input
-              type="text"
+            <select
               name="position10"
-              placeholder="Position"
+              value={this.state.position10}
               onChange={this.handleInput}
-            />
+            >
+              <option value="F">Forward</option>
+              <option value="M">Midfielder</option>
+              <option value="D">Defender</option>
+              <option value="GK">Goalkeeper</option>
+            </select>
           </div>
           <div>
             <label htmlFor="players">Player 11:</label>
@@ -351,12 +387,16 @@ class TeamForm extends Component {
               placeholder="Last Name"
               onChange={this.handleInput}
             />
-            <input
-              type="text"
+            <select
               name="position11"
-              placeholder="Position"
+              value={this.state.position11}
               onChange={this.handleInput}
-            />
+            >
+              <option value="F">Forward</option>
+              <option value="M">Midfielder</option>
+              <option value="D">Defender</option>
+              <option value="GK">Goalkeeper</option>
+            </select>
           </div>
           <div>
             <label htmlFor="color">Team Color:</label>

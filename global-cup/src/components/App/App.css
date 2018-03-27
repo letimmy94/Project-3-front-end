@@ -1,24 +1,15 @@
 header {
-  /* margin: auto 0; */
+  height: 90px;
   background: url('./soccer-pattern-vector.jpg');
   background-size: contain;
-  align-items: center;
 }
 
 .App-title {
   display: flex;
-  margin: auto;
+  margin: auto 0;
   justify-content: center;
   background: white;
   color: green;
-  /* text-align: center; */
-  width: 200px;
   opacity: 0.9;
   border-radius: 5px;
 }
-/* .navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background: white;
-} */
