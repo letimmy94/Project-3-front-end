@@ -17,13 +17,11 @@ class App extends Component {
         <header>
           <h1 className="App-title">Global Cup!</h1>
         </header>
-<<<<<<< HEAD
-        <TeamFrom />
-=======
+
         <div className="navbar">
           <NavBar />
         </div>
->>>>>>> master
+        <TeamFrom />
       </div>
     )
   }
