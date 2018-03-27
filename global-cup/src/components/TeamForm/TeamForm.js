@@ -15,6 +15,7 @@ class TeamForm extends Component {
     this.setState({
       [e.target.name]: e.target.value
     })
+    console.log(this.state)
   }
 
   handleSubmit(e) {
@@ -136,12 +137,16 @@ class TeamForm extends Component {
               placeholder="Last Name"
               onChange={this.handleInput}
             />
-            <input
-              type="text"
+            <select
               name="position1"
-              placeholder="Position"
+              value={this.state.position1}
               onChange={this.handleInput}
-            />
+            >
+              <option value="F">Forward</option>
+              <option value="M">Midfielder</option>
+              <option value="D">Defender</option>
+              <option value="GK">Goalkeeper</option>
+            </select>
           </div>
           <div>
             <label htmlFor="players">Player 2:</label>
@@ -355,12 +360,22 @@ class TeamForm extends Component {
           </div>
           <div>
             <label htmlFor="color">Team Color:</label>
-            <input
-              type="text"
+            <select
               name="color"
-              placeholder="Team Color"
+              value={this.state.color}
               onChange={this.handleInput}
-            />
+            >
+              <option value="red">Red</option>
+              <option value="blue">Blue</option>
+              <option value="green">Green</option>
+              <option value="purple">Purple</option>
+              <option value="black">Black</option>
+              <option value="white">White</option>
+              <option value="yellow">Yellow</option>
+              <option value="orange">Orange</option>
+              <option value="gray">Gray</option>
+              <option value="pink">Pink</option>
+            </select>
           </div>
           <div>
             <button type="submit" onClick={this.handleSubmit}>
