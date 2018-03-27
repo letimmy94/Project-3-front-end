@@ -4,6 +4,8 @@ import Container from '../Container/Container'
 import Logo from '../Logo/Logo'
 import NavBar from '../NavBar/NavBar'
 import TeamFrom from '../TeamForm/TeamForm'
+import Signup from '../Signup/Signup'
+import Login from '../Login/Login'
 import './App.css'
 import TeamInfo from '../TeamInfo/TeamInfo'
 
@@ -23,6 +25,8 @@ class App extends Component {
         </div>
         <TeamFrom />
         <TeamInfo />
+        <Signup />
+        <Login />
       </div>
     )
   }
