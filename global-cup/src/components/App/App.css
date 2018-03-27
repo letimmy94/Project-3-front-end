@@ -1,7 +1,15 @@
 .App {
   margin: auto 0;
+  background: green;
 }
 
 .App-title {
   text-align: center;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: white;
 }
