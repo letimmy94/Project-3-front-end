@@ -5,6 +5,7 @@ import Logo from '../Logo/Logo'
 import NavBar from '../NavBar/NavBar'
 import Roster from '../Roster/Roster'
 import TeamFrom from '../TeamForm/TeamForm'
+import Signup from '../Signup/Signup'
 import './App.css'
 
 class App extends Component {
@@ -22,6 +23,7 @@ class App extends Component {
           <NavBar />
         </div>
         <TeamFrom />
+        <Signup />
       </div>
     )
   }
