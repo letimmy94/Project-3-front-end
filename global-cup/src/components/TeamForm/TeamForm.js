@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import axios from 'axios'
 // import './TeamForm.css'
 
 class TeamForm extends Component {
@@ -18,7 +19,76 @@ class TeamForm extends Component {
 
   handleSubmit(e) {
     e.preventDefault()
-    console.log(this.state)
+    axios
+      .post('http://localhost:4000/teams', {
+        name: this.state.name,
+        color: this.state.color,
+        captain: {
+          firstName: this.state.firstname,
+          lastName: this.state.lastname,
+          email: this.state.email
+        },
+        players: [
+          {
+            firstName: this.state.firstname1,
+            lastName: this.state.lastname1,
+            position: this.state.position1
+          },
+          {
+            firstName: this.state.firstname2,
+            lastName: this.state.lastname2,
+            position: this.state.position2
+          },
+          {
+            firstName: this.state.firstname3,
+            lastName: this.state.lastname3,
+            position: this.state.position3
+          },
+          {
+            firstName: this.state.firstname4,
+            lastName: this.state.lastname4,
+            position: this.state.position4
+          },
+          {
+            firstName: this.state.firstname5,
+            lastName: this.state.lastname5,
+            position: this.state.position5
+          },
+          {
+            firstName: this.state.firstname6,
+            lastName: this.state.lastname6,
+            position: this.state.position6
+          },
+          {
+            firstName: this.state.firstname7,
+            lastName: this.state.lastname7,
+            position: this.state.position7
+          },
+          {
+            firstName: this.state.firstname8,
+            lastName: this.state.lastname8,
+            position: this.state.position8
+          },
+          {
+            firstName: this.state.firstname9,
+            lastName: this.state.lastName9,
+            position: this.state.position9
+          },
+          {
+            firstName: this.state.firstname10,
+            lastName: this.state.lastname10,
+            position: this.state.position10
+          },
+          {
+            firstName: this.state.firstname11,
+            lastName: this.state.lastname11,
+            position: this.state.position11
+          }
+        ]
+      })
+      .then(() => {
+        console.log('success')
+      })
   }
 
   render() {
