@@ -8,6 +8,7 @@ import Signup from '../Signup/Signup'
 import Login from '../Login/Login'
 import './App.css'
 import TeamInfo from '../TeamInfo/TeamInfo'
+import EditTeam from '../EditTeam/EditTeam'
 import { Route, Link, Switch, Redirect } from 'react-router-dom'
 
 class App extends Component {
@@ -53,6 +54,12 @@ class App extends Component {
             path="/login"
             render={() => {
               return <Login />
+            }}
+          />
+          <Route
+            path="/edit/:id"
+            render={() => {
+              return <EditTeam />
             }}
           />
         </Switch>
