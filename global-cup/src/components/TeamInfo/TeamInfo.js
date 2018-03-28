@@ -8,7 +8,21 @@ class TeamInfo extends Component {
     super(props)
     console.log(this.props)
     this.state = {
-      team: this.props.teams[0]
+      team: {
+        captain: {
+          firstName: '',
+          lastName: '',
+          email: ''
+        },
+        record: {
+          wins: '',
+          losses: '',
+          draws: ''
+        },
+        name: '',
+        players: ['', '', '', '', '', '', '', '', '', '', ''],
+        color: ''
+      }
     }
   }
 

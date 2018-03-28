@@ -55,14 +55,14 @@ class App extends Component {
           />
           <Route
             path="/teams/edit/:id"
-            render={() => {
-              return <EditTeam teams={this.state.teams} />
+            render={props => {
+              return <EditTeam {...props} />
             }}
           />
           <Route
             path="/teams/:id"
             render={props => {
-              return <TeamInfo {...props} teams={this.state.teams} />
+              return <TeamInfo {...props} />
             }}
           />
 
