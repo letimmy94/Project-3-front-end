@@ -8,6 +8,7 @@ import Signup from '../Signup/Signup'
 import Login from '../Login/Login'
 import './App.css'
 import TeamInfo from '../TeamInfo/TeamInfo'
+import { Route, Link, Switch, Redirect } from 'react-router-dom'
 
 class App extends Component {
   constructor() {
@@ -23,10 +24,32 @@ class App extends Component {
         <div className="navbar">
           <NavBar />
         </div>
-        <TeamForm />
-        <TeamInfo />
-        <Signup />
-        <Login />
+        <Switch>
+          <Route
+            path="/new"
+            render={() => {
+              return <TeamForm />
+            }}
+          />
+          <Route
+            path="/info"
+            render={() => {
+              return <TeamInfo />
+            }}
+          />
+          <Route
+            path="/signup"
+            render={() => {
+              return <Signup />
+            }}
+          />
+          <Route
+            path="/login"
+            render={() => {
+              return <Login />
+            }}
+          />
+        </Switch>
       </div>
     )
   }

@@ -25,7 +25,7 @@ class Login extends Component {
   render() {
     return (
       <div>
-        <h2>Sign In</h2>
+        <h2>Log In</h2>
         <form>
           <div>
             <label htmlFor="username">Username:</label>
