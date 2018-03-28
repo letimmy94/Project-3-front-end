@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import axios from 'axios'
+import './SignupStyle.css'
 
 class Signup extends Component {
   constructor() {
@@ -30,20 +31,44 @@ class Signup extends Component {
 
   render() {
     return (
-      <div>
-        <h2>Create an Account</h2>
+      <div className="signupstyle">
         <form>
+          <h2>Create an Account</h2>
           <div>
-            <label htmlFor="username">Username:</label>
-            <input type="text" name="username" onChange={this.handleInput} />
+            <label className="signupstyle" htmlFor="username">
+              Username:
+            </label>
+            <input
+              className="signinput"
+              type="text"
+              name="username"
+              placeholder="Enter Username"
+              onChange={this.handleInput}
+            />
           </div>
           <div>
-            <label htmlFor="password">Password:</label>
-            <input type="text" name="password" onChange={this.handleInput} />
+            <label className="signupstyle" htmlFor="password">
+              Password:
+            </label>
+            <input
+              className="signinput"
+              type="text"
+              name="password"
+              placeholder="Enter Password"
+              onChange={this.handleInput}
+            />
           </div>
           <div>
-            <label htmlFor="email">Email Address:</label>
-            <input type="text" name="email" onChange={this.handleInput} />
+            <label className="signupstyle" htmlFor="email">
+              Email Address:
+            </label>
+            <input
+              className="signinput"
+              type="text"
+              name="email"
+              placeholder="Enter Email"
+              onChange={this.handleInput}
+            />
           </div>
           <button type="submit" onClick={this.handleSubmit}>
             Create an Account!

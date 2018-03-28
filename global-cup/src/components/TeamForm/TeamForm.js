@@ -96,7 +96,7 @@ class TeamForm extends Component {
     return (
       <div className="teamsheet">
         <form>
-          <h2>New Team Sheet</h2>
+          <h2 className="h2o">New Team Sheet</h2>
           <div>
             <label htmlFor="name">Team Name:</label>
             <input
@@ -128,7 +128,7 @@ class TeamForm extends Component {
             />
           </div>
           <div>
-            <label htmlFor="players">Player 1 (Captain):</label>
+            <label htmlFor="players">Player:</label>
             <input
               type="text"
               name="firstname1"
@@ -154,7 +154,7 @@ class TeamForm extends Component {
             </select>
           </div>
           <div>
-            <label htmlFor="players">Player 2:</label>
+            <label htmlFor="players">Player:</label>
             <input
               type="text"
               name="firstname2"
@@ -180,7 +180,7 @@ class TeamForm extends Component {
             </select>
           </div>
           <div>
-            <label htmlFor="players">Player 3:</label>
+            <label htmlFor="players">Player:</label>
             <input
               type="text"
               name="firstname3"
@@ -206,7 +206,7 @@ class TeamForm extends Component {
             </select>
           </div>
           <div>
-            <label htmlFor="players">Player 4:</label>
+            <label htmlFor="players">Player:</label>
             <input
               type="text"
               name="firstname4"
@@ -232,7 +232,7 @@ class TeamForm extends Component {
             </select>
           </div>
           <div>
-            <label htmlFor="players">Player 5:</label>
+            <label htmlFor="players">Player:</label>
             <input
               type="text"
               name="firstname5"
@@ -258,7 +258,7 @@ class TeamForm extends Component {
             </select>
           </div>
           <div>
-            <label htmlFor="players">Player 6:</label>
+            <label htmlFor="players">Player:</label>
             <input
               type="text"
               name="firstname6"
@@ -284,7 +284,7 @@ class TeamForm extends Component {
             </select>
           </div>
           <div>
-            <label htmlFor="players">Player 7:</label>
+            <label htmlFor="players">Player:</label>
             <input
               type="text"
               name="firstname7"
@@ -310,7 +310,7 @@ class TeamForm extends Component {
             </select>
           </div>
           <div>
-            <label htmlFor="players">Player 8:</label>
+            <label htmlFor="players">Player:</label>
             <input
               type="text"
               name="firstname8"
@@ -336,7 +336,7 @@ class TeamForm extends Component {
             </select>
           </div>
           <div>
-            <label htmlFor="players">Player 9:</label>
+            <label htmlFor="players">Player:</label>
             <input
               type="text"
               name="firstname9"
@@ -362,7 +362,7 @@ class TeamForm extends Component {
             </select>
           </div>
           <div>
-            <label htmlFor="players">Player 10:</label>
+            <label htmlFor="players">Player:</label>
             <input
               type="text"
               name="firstname10"
@@ -388,7 +388,7 @@ class TeamForm extends Component {
             </select>
           </div>
           <div>
-            <label htmlFor="players">Player 11:</label>
+            <label htmlFor="players">Player:</label>
             <input
               type="text"
               name="firstname11"
