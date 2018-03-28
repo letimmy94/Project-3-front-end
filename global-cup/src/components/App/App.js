@@ -39,7 +39,7 @@ class App extends Component {
             }}
           />
           <Route
-            path="/team"
+            path="/teams"
             render={() => {
               return <Container />
             }}
@@ -57,7 +57,7 @@ class App extends Component {
             }}
           />
           <Route
-            path="/edit/:id"
+            path="/teams/edit"
             render={() => {
               return <EditTeam />
             }}

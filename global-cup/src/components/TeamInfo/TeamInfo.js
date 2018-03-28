@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Route, Link, Switch, Redirect } from 'react-router-dom'
 import './TeamInfo.css'
 
 class TeamInfo extends Component {
@@ -10,6 +11,7 @@ class TeamInfo extends Component {
   }
 
   render() {
+    let path = `/teams/edit/${this.props.team._id}`
     return (
       <div>
         <h1 className="info">Team Info</h1>
@@ -95,7 +97,9 @@ class TeamInfo extends Component {
             </tr>
           </tbody>
         </table>
-        <button>EDIT</button>
+        <button>
+          <Link to={path}>Edit</Link>
+        </button>
       </div>
     )
   }
