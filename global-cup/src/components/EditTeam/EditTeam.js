@@ -2,10 +2,12 @@ import React, { Component } from 'react'
 import axios from 'axios'
 
 class EditTeam extends Component {
-  constructor() {
-    super()
+  constructor(props) {
+    super(props)
 
-    this.state = {}
+    this.state = {
+      props
+    }
   }
 
   handleChange(e) {
