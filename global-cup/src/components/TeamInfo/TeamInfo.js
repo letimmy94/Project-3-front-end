@@ -2,19 +2,20 @@ import React, { Component } from 'react'
 import './TeamInfo.css'
 
 class TeamInfo extends Component {
-  constructor() {
-    super()
+  constructor(team) {
+    super(team)
 
     this.state = {}
+    console.log(team)
   }
 
   render() {
     return (
       <div>
         <h1 className="info">Team Info</h1>
-        <h2>Team Name Will Go Here</h2>
-        <h4>coach:</h4>
-        <h4>color here</h4>
+        <h2>{this.props.team.name}</h2>
+        <h4>{this.props.team.captain.firstName}</h4>
+        <h4>{this.props.team.color}</h4>
         <table>
           <thead>
             <tr>
@@ -28,69 +29,69 @@ class TeamInfo extends Component {
           <tbody>
             <tr>
               <th>Player 1</th>
-              <th />
-              <th />
-              <th />
+              <th> {this.props.team.players[0].firstName}</th>
+              <th> {this.props.team.players[0].lastName}</th>
+              <th> {this.props.team.players[0].position}</th>
             </tr>
             <tr>
               <th>Player 2</th>
-              <th />
-              <th />
-              <th />
+              <th> {this.props.team.players[1].firstName}</th>
+              <th> {this.props.team.players[1].lastName}</th>
+              <th> {this.props.team.players[1].position}</th>
             </tr>
             <tr>
               <th>Player 3</th>
-              <th />
-              <th />
-              <th />
+              <th> {this.props.team.players[2].firstName}</th>
+              <th> {this.props.team.players[2].lastName}</th>
+              <th> {this.props.team.players[2].position}</th>
             </tr>
             <tr>
               <th>Player 4</th>
-              <th />
-              <th />
-              <th />
+              <th> {this.props.team.players[3].firstName}</th>
+              <th> {this.props.team.players[3].lastName}</th>
+              <th> {this.props.team.players[3].position}</th>
             </tr>
             <tr>
               <th>Player 5</th>
-              <th />
-              <th />
-              <th />
+              <th> {this.props.team.players[4].firstName}</th>
+              <th> {this.props.team.players[4].lastName}</th>
+              <th> {this.props.team.players[4].position}</th>
             </tr>
             <tr>
               <th>Player 6</th>
-              <th />
-              <th />
-              <th />
+              <th> {this.props.team.players[5].firstName}</th>
+              <th> {this.props.team.players[5].lastName}</th>
+              <th> {this.props.team.players[5].position}</th>
             </tr>
             <tr>
               <th>Player 7</th>
-              <th />
-              <th />
-              <th />
+              <th> {this.props.team.players[6].firstName}</th>
+              <th> {this.props.team.players[6].lastName}</th>
+              <th> {this.props.team.players[6].position}</th>
             </tr>
             <tr>
               <th>Player 8</th>
-              <th />
-              <th />
-              <th />
+              <th> {this.props.team.players[7].firstName}</th>
+              <th> {this.props.team.players[7].lastName}</th>
+              <th> {this.props.team.players[7].position}</th>
             </tr>
             <tr>
               <th>Player 9</th>
-              <th />
-              <th />
-              <th />
+              <th> {this.props.team.players[8].firstName}</th>
+              <th> {this.props.team.players[8].lastName}</th>
+              <th> {this.props.team.players[8].position}</th>
             </tr>
             <tr>
               <th>Player 10</th>
-              <th />
-              <th />
-              <th />
+              <th> {this.props.team.players[9].firstName}</th>
+              <th> {this.props.team.players[9].lastName}</th>
+              <th> {this.props.team.players[9].position}</th>
             </tr>
             <tr>
               <th>Player 11</th>
-              <th />
-              <th />
-              <th />
+              <th> {this.props.team.players[10].firstName}</th>
+              <th> {this.props.team.players[10].lastName}</th>
+              <th> {this.props.team.players[10].position}</th>
             </tr>
           </tbody>
         </table>
