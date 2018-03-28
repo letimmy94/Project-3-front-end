@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import axios from 'axios'
-// import './TeamForm.css'
+import './TeamForm.css'
 
 class TeamForm extends Component {
   constructor() {
@@ -94,16 +94,20 @@ class TeamForm extends Component {
 
   render() {
     return (
-      <div>
-        <h2>New Team Sheet</h2>
-
+      <div className="teamsheet">
         <form>
+          <h2>New Team Sheet</h2>
           <div>
             <label htmlFor="name">Team Name:</label>
-            <input type="text" name="name" onChange={this.handleInput} />
+            <input
+              type="text"
+              name="name"
+              placeholder="Team Name"
+              onChange={this.handleInput}
+            />
           </div>
           <div>
-            <label htmlFor="captain">Captain:</label>
+            <label htmlFor="captain">Coach:</label>
             <input
               type="text"
               name="firstname"
@@ -124,7 +128,7 @@ class TeamForm extends Component {
             />
           </div>
           <div>
-            <label htmlFor="players">Player 1:</label>
+            <label htmlFor="players">Player 1 (Captain):</label>
             <input
               type="text"
               name="firstname1"
@@ -142,6 +146,7 @@ class TeamForm extends Component {
               value={this.state.position1}
               onChange={this.handleInput}
             >
+              <option>Please choose a position</option>
               <option value="F">Forward</option>
               <option value="M">Midfielder</option>
               <option value="D">Defender</option>
@@ -167,6 +172,7 @@ class TeamForm extends Component {
               value={this.state.position2}
               onChange={this.handleInput}
             >
+              <option>Please choose a position</option>
               <option value="F">Forward</option>
               <option value="M">Midfielder</option>
               <option value="D">Defender</option>
@@ -192,6 +198,7 @@ class TeamForm extends Component {
               value={this.state.position3}
               onChange={this.handleInput}
             >
+              <option>Please choose a position</option>
               <option value="F">Forward</option>
               <option value="M">Midfielder</option>
               <option value="D">Defender</option>
@@ -217,6 +224,7 @@ class TeamForm extends Component {
               value={this.state.position4}
               onChange={this.handleInput}
             >
+              <option>Please choose a position</option>
               <option value="F">Forward</option>
               <option value="M">Midfielder</option>
               <option value="D">Defender</option>
@@ -242,6 +250,7 @@ class TeamForm extends Component {
               value={this.state.position5}
               onChange={this.handleInput}
             >
+              <option>Please choose a position</option>
               <option value="F">Forward</option>
               <option value="M">Midfielder</option>
               <option value="D">Defender</option>
@@ -267,6 +276,7 @@ class TeamForm extends Component {
               value={this.state.position6}
               onChange={this.handleInput}
             >
+              <option>Please choose a position</option>
               <option value="F">Forward</option>
               <option value="M">Midfielder</option>
               <option value="D">Defender</option>
@@ -292,6 +302,7 @@ class TeamForm extends Component {
               value={this.state.position7}
               onChange={this.handleInput}
             >
+              <option>Please choose a position</option>
               <option value="F">Forward</option>
               <option value="M">Midfielder</option>
               <option value="D">Defender</option>
@@ -317,6 +328,7 @@ class TeamForm extends Component {
               value={this.state.position8}
               onChange={this.handleInput}
             >
+              <option>Please choose a position</option>
               <option value="F">Forward</option>
               <option value="M">Midfielder</option>
               <option value="D">Defender</option>
@@ -342,6 +354,7 @@ class TeamForm extends Component {
               value={this.state.position9}
               onChange={this.handleInput}
             >
+              <option>Please choose a position</option>
               <option value="F">Forward</option>
               <option value="M">Midfielder</option>
               <option value="D">Defender</option>
@@ -367,6 +380,7 @@ class TeamForm extends Component {
               value={this.state.position10}
               onChange={this.handleInput}
             >
+              <option>Please choose a position</option>
               <option value="F">Forward</option>
               <option value="M">Midfielder</option>
               <option value="D">Defender</option>
@@ -392,6 +406,7 @@ class TeamForm extends Component {
               value={this.state.position11}
               onChange={this.handleInput}
             >
+              <option>Please choose a position</option>
               <option value="F">Forward</option>
               <option value="M">Midfielder</option>
               <option value="D">Defender</option>
