@@ -10,13 +10,8 @@ class Container extends Component {
   }
 
   render() {
-<<<<<<< HEAD
-    let teams = this.state.teams.map(team => {
-      return <TeamList team={team} />
-=======
     let teams = this.props.teams.map(team => {
       return <TeamInfo team={team} />
->>>>>>> edit-feature
     })
     return <div> {teams} </div>
   }
