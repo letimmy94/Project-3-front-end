@@ -9,11 +9,32 @@ import Login from '../Login/Login'
 import './App.css'
 import TeamInfo from '../TeamInfo/TeamInfo'
 import EditTeam from '../EditTeam/EditTeam'
+import axios from 'axios'
 import { Route, Link, Switch, Redirect } from 'react-router-dom'
 
 class App extends Component {
   constructor() {
     super()
+    this.state = {
+      teams: []
+    }
+  }
+
+  componentDidMount() {
+    let teams = []
+    axios
+      .get('http://localhost:4000/teams')
+      .then(res => {
+        res.data.map(team => {
+          teams.push(team)
+        })
+      })
+      .then(() => {
+        this.setState({
+          teams: teams
+        })
+        console.log(this.state)
+      })
   }
   render() {
     return (
@@ -39,9 +60,15 @@ class App extends Component {
             }}
           />
           <Route
+            path="/teams/edit/:id"
+            render={() => {
+              return <EditTeam teams={this.state.teams} />
+            }}
+          />
+          <Route
             path="/teams"
             render={() => {
-              return <Container />
+              return <Container teams={this.state.teams} />
             }}
           />
           <Route
@@ -54,12 +81,6 @@ class App extends Component {
             path="/login"
             render={() => {
               return <Login />
-            }}
-          />
-          <Route
-            path="/teams/edit"
-            render={() => {
-              return <EditTeam />
             }}
           />
         </Switch>

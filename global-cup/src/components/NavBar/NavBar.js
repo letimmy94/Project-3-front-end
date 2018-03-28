@@ -7,7 +7,7 @@ class NavBar extends Component {
     return (
       <div className="nav">
         <Link to="/">Home</Link>
-        <Link to="/team">Teams</Link>
+        <Link to="/teams">Teams</Link>
         <Link to="/new">Add Teams</Link>
         <Link to="/login">Log In</Link>
         <Link to="/signup">Sign Up</Link>
