@@ -9,9 +9,10 @@ class TeamList extends Component {
     this.state = {}
   }
   render() {
+    let path = `/teams/${this.props.team._id}`
     return (
       <div>
-        <Link to="/info"> {this.props.team.name} </Link>
+        <Link to={path}> {this.props.team.name} </Link>
         <p> {this.props.team.color} </p>
       </div>
     )

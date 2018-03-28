@@ -54,17 +54,18 @@ class App extends Component {
             }}
           />
           <Route
-            path="/info"
-            render={() => {
-              return <TeamInfo />
-            }}
-          />
-          <Route
             path="/teams/edit/:id"
             render={() => {
               return <EditTeam teams={this.state.teams} />
             }}
           />
+          <Route
+            path="/teams/:id"
+            render={props => {
+              return <TeamInfo {...props} teams={this.state.teams} />
+            }}
+          />
+
           <Route
             path="/teams"
             render={() => {
