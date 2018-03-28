@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 import Container from '../Container/Container'
 import Logo from '../Logo/Logo'
 import NavBar from '../NavBar/NavBar'
-import TeamFrom from '../TeamForm/TeamForm'
+import TeamForm from '../TeamForm/TeamForm'
 import Signup from '../Signup/Signup'
 import Login from '../Login/Login'
 import './App.css'
@@ -23,7 +23,7 @@ class App extends Component {
         <div className="navbar">
           <NavBar />
         </div>
-        <TeamFrom />
+        <TeamForm />
         <TeamInfo />
         <Signup />
         <Login />
