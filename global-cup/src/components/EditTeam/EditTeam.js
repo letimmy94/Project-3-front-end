@@ -2,11 +2,11 @@ import React, { Component } from 'react'
 import axios from 'axios'
 
 class EditTeam extends Component {
-  constructor(props) {
-    super(props)
-
+  constructor(teams) {
+    super(teams)
+    console.log(this.props.teams)
     this.state = {
-      props
+      teams: this.props.teams
     }
   }
 
@@ -91,6 +91,7 @@ class EditTeam extends Component {
   }
 
   render() {
+    console.log(this.state)
     return (
       <div>
         <form>
@@ -110,7 +111,7 @@ class EditTeam extends Component {
               name="firstname"
               placeholder="First Name"
               onChange={this.handleChange}
-              value={this.state.captain.firstName}
+              value={this.state.teams[0].captain.firstName}
             />
             <input
               type="text"

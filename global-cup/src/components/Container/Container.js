@@ -5,34 +5,18 @@ import TeamInfo from '../TeamInfo/TeamInfo'
 import TeamList from '../TeamList/TeamList'
 
 class Container extends Component {
-  constructor() {
-    super()
-
-    this.state = {
-      teams: []
-    }
-  }
-
-  componentDidMount() {
-    let teams = []
-    axios
-      .get('http://localhost:4000/teams')
-      .then(res => {
-        res.data.map(team => {
-          teams.push(team)
-        })
-      })
-      .then(() => {
-        this.setState({
-          teams: teams
-        })
-        console.log(this.state)
-      })
+  constructor(props) {
+    super(props)
   }
 
   render() {
+<<<<<<< HEAD
     let teams = this.state.teams.map(team => {
       return <TeamList team={team} />
+=======
+    let teams = this.props.teams.map(team => {
+      return <TeamInfo team={team} />
+>>>>>>> edit-feature
     })
     return <div> {teams} </div>
   }
