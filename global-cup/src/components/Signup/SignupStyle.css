@@ -4,8 +4,13 @@ h2 {
   justify-content: center;
 }
 
-.teamsheet {
+.signupstyle {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  margin: auto 0;
+  justify-content: space-around;
+}
+
+.signinput {
+  width: 200px;
 }
