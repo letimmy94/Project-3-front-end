@@ -94,6 +94,7 @@ class TeamInfo extends Component {
             </tr>
           </tbody>
         </table>
+        <button>EDIT</button>
       </div>
     )
   }
