@@ -3,7 +3,7 @@ import './Container.css'
 
 class Container extends Component {
   render() {
-    return <div />
+    return <div> Teams will go here </div>
   }
 }
 

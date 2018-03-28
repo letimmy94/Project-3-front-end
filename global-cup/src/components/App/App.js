@@ -38,6 +38,12 @@ class App extends Component {
             }}
           />
           <Route
+            path="/team"
+            render={() => {
+              return <Container />
+            }}
+          />
+          <Route
             path="/signup"
             render={() => {
               return <Signup />
