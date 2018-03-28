@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import './Container.css'
 import axios from 'axios'
+import TeamInfo from '../TeamInfo/TeamInfo'
 
 class Container extends Component {
   constructor() {
@@ -29,7 +30,10 @@ class Container extends Component {
   }
 
   render() {
-    return <div> Teams will go here </div>
+    let teams = this.state.teams.map(team => {
+      return <TeamInfo team={team} />
+    })
+    return <div> {teams} </div>
   }
 }
 
