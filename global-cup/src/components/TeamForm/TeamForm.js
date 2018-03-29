@@ -21,7 +21,7 @@ class TeamForm extends Component {
   handleSubmit(e) {
     e.preventDefault()
     axios
-      .post('http://localhost:4000/teams', {
+      .post('https://global-cup.herokuapp.com/teams', {
         name: this.state.name,
         color: this.state.color,
         captain: {

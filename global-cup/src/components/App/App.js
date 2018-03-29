@@ -32,7 +32,7 @@ class App extends Component {
   componentDidMount() {
     let teams = []
     axios
-      .get('http://localhost:4000/teams')
+      .get('https://global-cup.herokuapp.com/teams')
       .then(res => {
         res.data.map(team => {
           teams.push(team)
@@ -64,7 +64,7 @@ class App extends Component {
   handleSignUp(e) {
     e.preventDefault()
     axios
-      .post('http://localhost:4000/users/signup', {
+      .post('https://global-cup.herokuapp.com/users/signup', {
         email: this.state.email,
         password: this.state.password
       })
@@ -80,7 +80,7 @@ class App extends Component {
   handleLogIn(e) {
     e.preventDefault()
     axios
-      .post('http://localhost:4000/users/login', {
+      .post('https://global-cup.herokuapp.com/users/login', {
         email: this.state.email,
         password: this.state.password
       })

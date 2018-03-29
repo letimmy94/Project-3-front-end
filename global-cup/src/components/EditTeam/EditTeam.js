@@ -48,7 +48,9 @@ class EditTeam extends Component {
   componentDidMount() {
     let team
     axios
-      .get(`http://localhost:4000/teams/${this.props.match.params.id}`)
+      .get(
+        `https://global-cup.herokuapp.com/teams/${this.props.match.params.id}`
+      )
       .then(res => {
         team = res.data
       })
@@ -105,7 +107,7 @@ class EditTeam extends Component {
     let teamId = e.target.id
     console.log(teamId)
     axios
-      .put(`http://localhost:4000/teams/edit/${teamId}`, {
+      .put(`https://global-cup.herokuapp.com/teams/edit/${teamId}`, {
         name: this.state.name,
         color: this.state.color,
         captain: {

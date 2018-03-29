@@ -29,7 +29,7 @@ class TeamInfo extends Component {
 
   deleteTeam(e) {
     let teamId = e.target.id
-    axios.delete(`http://localhost:4000/teams/${teamId}`, {
+    axios.delete(`https://global-cup.herokuapp.com/teams/${teamId}`, {
       params: { _id: teamId }
     })
   }
@@ -37,7 +37,9 @@ class TeamInfo extends Component {
   componentDidMount() {
     let team
     axios
-      .get(`http://localhost:4000/teams/${this.props.match.params.id}`)
+      .get(
+        `https://global-cup.herokuapp.com/teams/${this.props.match.params.id}`
+      )
       .then(res => {
         team = res.data
       })
