@@ -29,10 +29,10 @@ class Login extends Component {
         <form>
           <h2>Log In</h2>
           <div>
-            <label className="login" htmlFor="username">
-              Username:
+            <label className="login" htmlFor="email">
+              Email:
             </label>
-            <input type="text" name="username" onChange={this.handleInput} />
+            <input type="text" name="email" onChange={this.handleInput} />
           </div>
           <div>
             <label className="login" htmlFor="password">

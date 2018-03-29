@@ -20,7 +20,6 @@ class Signup extends Component {
     e.preventDefault()
     axios
       .post('http://localhost:4000/users', {
-        username: this.state.username,
         password: this.state.password,
         email: this.state.email
       })
@@ -34,18 +33,6 @@ class Signup extends Component {
       <div className="signupstyle">
         <form>
           <h2>Create an Account</h2>
-          <div>
-            <label className="signupstyle" htmlFor="username">
-              Username:
-            </label>
-            <input
-              className="signinput"
-              type="text"
-              name="username"
-              placeholder="Enter Username"
-              onChange={this.handleInput}
-            />
-          </div>
           <div>
             <label className="signupstyle" htmlFor="password">
               Password:
