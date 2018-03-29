@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import axios from 'axios'
+import { Route, Link, Switch, Redirect } from 'react-router-dom'
 
 class EditTeam extends Component {
   constructor(props) {
@@ -103,9 +104,9 @@ class EditTeam extends Component {
   }
 
   handleSubmit(e) {
-    e.preventDefault()
+    // e.preventDefault()
     let teamId = e.target.id
-    console.log(teamId)
+
     axios
       .put(`http://localhost:4000/teams/edit/${teamId}`, {
         name: this.state.name,
@@ -174,8 +175,9 @@ class EditTeam extends Component {
           }
         ]
       })
-      .then(() => {
-        console.log('success')
+      .then(res => {
+        console.log(res.data)
+        this.props.updateBigStateInApp(res.data)
       })
   }
 
@@ -516,13 +518,15 @@ class EditTeam extends Component {
             </select>
           </div>
           <div>
-            <button
-              id={this.props.match.params.id}
-              type="submit"
-              onClick={this.handleSubmit}
-            >
-              Submit
-            </button>
+            <Link to="/teams">
+              <button
+                id={this.props.match.params.id}
+                type="submit"
+                onClick={this.handleSubmit}
+              >
+                Submit
+              </button>
+            </Link>
           </div>
         </form>
       </div>

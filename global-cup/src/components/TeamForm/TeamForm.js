@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Router, Route, Link, Switch, Redirect } from 'react-router-dom'
 import axios from 'axios'
 import './TeamForm.css'
 
@@ -19,7 +20,7 @@ class TeamForm extends Component {
   }
 
   handleSubmit(e) {
-    e.preventDefault()
+    // e.preventDefault()
     axios
       .post('http://localhost:4000/teams', {
         name: this.state.name,
@@ -87,8 +88,8 @@ class TeamForm extends Component {
           }
         ]
       })
-      .then(() => {
-        console.log('success')
+      .then(res => {
+        this.props.updateBigStateInApp(res.data)
       })
   }
 
@@ -418,9 +419,11 @@ class TeamForm extends Component {
             </select>
           </div>
           <div>
-            <button type="submit" onClick={this.handleSubmit}>
-              Submit
-            </button>
+            <Link to="/teams">
+              <button type="submit" onClick={this.handleSubmit}>
+                Submit
+              </button>
+            </Link>
           </div>
         </form>
       </div>
