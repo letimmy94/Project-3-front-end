@@ -5,44 +5,45 @@ class EditTeam extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      team: {
-        name: '',
-        color: '',
-        firstname: '',
-        lastname: '',
-        email: '',
-        firstname1: '',
-        lastname1: '',
-        position1: '',
-        firstname2: '',
-        lastname2: '',
-        position2: '',
-        firstname3: '',
-        lastname3: '',
-        position3: '',
-        firstname4: '',
-        lastname4: '',
-        position4: '',
-        firstname5: '',
-        lastname5: '',
-        position5: '',
-        firstname6: '',
-        lastname6: '',
-        position6: '',
-        firstname7: '',
-        lastname7: '',
-        position7: '',
-        firstname8: '',
-        lastname8: '',
-        position8: '',
-        firstname9: '',
-        lastname9: '',
-        position9: '',
-        firstname10: '',
-        lastname10: '',
-        position10: ''
-      }
+      name: '',
+      color: '',
+      firstname: '',
+      lastname: '',
+      email: '',
+      firstname1: '',
+      lastname1: '',
+      position1: '',
+      firstname2: '',
+      lastname2: '',
+      position2: '',
+      firstname3: '',
+      lastname3: '',
+      position3: '',
+      firstname4: '',
+      lastname4: '',
+      position4: '',
+      firstname5: '',
+      lastname5: '',
+      position5: '',
+      firstname6: '',
+      lastname6: '',
+      position6: '',
+      firstname7: '',
+      lastname7: '',
+      position7: '',
+      firstname8: '',
+      lastname8: '',
+      position8: '',
+      firstname9: '',
+      lastname9: '',
+      position9: '',
+      firstname10: '',
+      lastname10: '',
+      position10: ''
     }
+
+    this.handleChange = this.handleChange.bind(this)
+    this.handleSubmit = this.handleSubmit.bind(this)
   }
   componentDidMount() {
     let team
@@ -101,8 +102,10 @@ class EditTeam extends Component {
 
   handleSubmit(e) {
     e.preventDefault()
+    let teamId = e.target.id
+    console.log(teamId)
     axios
-      .put('http://localhost:4000/teams/edit/:id', {
+      .put(`http://localhost:4000/teams/edit/${teamId}`, {
         name: this.state.name,
         color: this.state.color,
         captain: {
@@ -183,7 +186,7 @@ class EditTeam extends Component {
               type="text"
               name="name"
               onChange={this.handleChange}
-              value={this.state.team.name}
+              value={this.state.name}
             />
           </div>
           <div>
@@ -193,21 +196,21 @@ class EditTeam extends Component {
               name="firstname"
               placeholder="First Name"
               onChange={this.handleChange}
-              value={this.state.team.firstname}
+              value={this.state.firstname}
             />
             <input
               type="text"
               name="lastname"
               placeholder="Last Name"
               onChange={this.handleChange}
-              value={this.state.team.lastname}
+              value={this.state.lastname}
             />
             <input
               type="text"
               name="email"
               placeholder="Email"
               onChange={this.handleChange}
-              value={this.state.team.email}
+              value={this.state.email}
             />
           </div>
           <div>
@@ -217,18 +220,18 @@ class EditTeam extends Component {
               name="firstname1"
               placeholder="First Name"
               onChange={this.handleChange}
-              value={this.state.team.firstname1}
+              value={this.state.firstname1}
             />
             <input
               type="text"
               name="lastname1"
               placeholder="Last Name"
               onChange={this.handleChange}
-              value={this.state.team.lastname1}
+              value={this.state.lastname1}
             />
             <select
               name="position1"
-              value={this.state.team.position1}
+              value={this.state.position1}
               onChange={this.handleChange}
             >
               <option value="F">Forward</option>
@@ -244,18 +247,18 @@ class EditTeam extends Component {
               name="firstname2"
               placeholder="First Name"
               onChange={this.handleChange}
-              value={this.state.team.firstname2}
+              value={this.state.firstname2}
             />
             <input
               type="text"
               name="lastname2"
               placeholder="Last Name"
               onChange={this.handleChange}
-              value={this.state.team.lastname2}
+              value={this.state.lastname2}
             />
             <select
               name="position2"
-              value={this.state.team.position2}
+              value={this.state.position2}
               onChange={this.handleChange}
             >
               <option value="F">Forward</option>
@@ -271,18 +274,18 @@ class EditTeam extends Component {
               name="firstname3"
               placeholder="First Name"
               onChange={this.handleChange}
-              value={this.state.team.firstname3}
+              value={this.state.firstname3}
             />
             <input
               type="text"
               name="lastname3"
               placeholder="Last Name"
               onChange={this.handleChange}
-              value={this.state.team.lastname3}
+              value={this.state.lastname3}
             />
             <select
               name="position3"
-              value={this.state.team.position3}
+              value={this.state.position3}
               onChange={this.handleChange}
             >
               <option value="F">Forward</option>
@@ -298,18 +301,18 @@ class EditTeam extends Component {
               name="firstname4"
               placeholder="First Name"
               onChange={this.handleChange}
-              value={this.state.team.firstname4}
+              value={this.state.firstname4}
             />
             <input
               type="text"
               name="lastname4"
               placeholder="Last Name"
               onChange={this.handleChange}
-              value={this.state.team.lastname4}
+              value={this.state.lastname4}
             />
             <select
               name="position4"
-              value={this.state.team.position4}
+              value={this.state.position4}
               onChange={this.handleChange}
             >
               <option value="F">Forward</option>
@@ -325,18 +328,18 @@ class EditTeam extends Component {
               name="firstname5"
               placeholder="First Name"
               onChange={this.handleChange}
-              value={this.state.team.firstname5}
+              value={this.state.firstname5}
             />
             <input
               type="text"
               name="lastname5"
               placeholder="Last Name"
               onChange={this.handleChange}
-              value={this.state.team.lastname5}
+              value={this.state.lastname5}
             />
             <select
               name="position5"
-              value={this.state.team.position5}
+              value={this.state.position5}
               onChange={this.handleChange}
             >
               <option value="F">Forward</option>
@@ -352,18 +355,18 @@ class EditTeam extends Component {
               name="firstname6"
               placeholder="First Name"
               onChange={this.handleChange}
-              value={this.state.team.firstname6}
+              value={this.state.firstname6}
             />
             <input
               type="text"
               name="lastname6"
               placeholder="Last Name"
               onChange={this.handleChange}
-              value={this.state.team.lastname6}
+              value={this.state.lastname6}
             />
             <select
               name="position6"
-              value={this.state.team.position6}
+              value={this.state.position6}
               onChange={this.handleChange}
             >
               <option value="F">Forward</option>
@@ -379,18 +382,18 @@ class EditTeam extends Component {
               name="firstname7"
               placeholder="First Name"
               onChange={this.handleChange}
-              value={this.state.team.firstname7}
+              value={this.state.firstname7}
             />
             <input
               type="text"
               name="lastname7"
               placeholder="Last Name"
               onChange={this.handleChange}
-              value={this.state.team.lastname7}
+              value={this.state.lastname7}
             />
             <select
               name="position7"
-              value={this.state.team.position7}
+              value={this.state.position7}
               onChange={this.handleChange}
             >
               <option value="F">Forward</option>
@@ -406,18 +409,18 @@ class EditTeam extends Component {
               name="firstname8"
               placeholder="First Name"
               onChange={this.handleChange}
-              value={this.state.team.firstname8}
+              value={this.state.firstname8}
             />
             <input
               type="text"
               name="lastname8"
               placeholder="Last Name"
               onChange={this.handleChange}
-              value={this.state.team.lastname8}
+              value={this.state.lastname8}
             />
             <select
               name="position8"
-              value={this.state.team.position8}
+              value={this.state.position8}
               onChange={this.handleChange}
             >
               <option value="F">Forward</option>
@@ -433,18 +436,18 @@ class EditTeam extends Component {
               name="firstname9"
               placeholder="First Name"
               onChange={this.handleChange}
-              value={this.state.team.firstname9}
+              value={this.state.firstname9}
             />
             <input
               type="text"
               name="lastname9"
               placeholder="Last Name"
               onChange={this.handleChange}
-              value={this.state.team.lastname9}
+              value={this.state.lastname9}
             />
             <select
               name="position9"
-              value={this.state.team.position9}
+              value={this.state.position9}
               onChange={this.handleChange}
             >
               <option value="F">Forward</option>
@@ -460,18 +463,18 @@ class EditTeam extends Component {
               name="firstname10"
               placeholder="First Name"
               onChange={this.handleChange}
-              value={this.state.team.firstname10}
+              value={this.state.firstname10}
             />
             <input
               type="text"
               name="lastname10"
               placeholder="Last Name"
               onChange={this.handleChange}
-              value={this.state.team.lastname10}
+              value={this.state.lastname10}
             />
             <select
               name="position10"
-              value={this.state.team.position10}
+              value={this.state.position10}
               onChange={this.handleChange}
             >
               <option value="F">Forward</option>
@@ -484,7 +487,7 @@ class EditTeam extends Component {
             <label htmlFor="color">Team Color:</label>
             <select
               name="color"
-              value={this.state.team.color}
+              value={this.state.color}
               onChange={this.handleChange}
             >
               <option value="red">Red</option>
@@ -500,7 +503,11 @@ class EditTeam extends Component {
             </select>
           </div>
           <div>
-            <button type="submit" onClick={this.handleSubmit}>
+            <button
+              id={this.props.match.params.id}
+              type="submit"
+              onClick={this.handleSubmit}
+            >
               Submit
             </button>
           </div>
