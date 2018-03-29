@@ -3,31 +3,6 @@ import axios from 'axios'
 import './SignupStyle.css'
 
 class Signup extends Component {
-  // constructor() {
-  //   super()
-  //   this.state = {}
-  //   this.handleInput = this.handleInput.bind(this)
-  //   this.handleSubmit = this.handleSubmit.bind(this)
-  // }
-
-  // handleInput(e) {
-  //   this.setState({
-  //     [e.target.name]: e.target.value
-  //   })
-  // }
-
-  // handleSubmit(e) {
-  //   e.preventDefault()
-  //   axios
-  //     .post('http://localhost:4000/users', {
-  //       password: this.state.password,
-  //       email: this.state.email
-  //     })
-  //     .then(() => {
-  //       console.log('success')
-  //     })
-  // }
-
   render() {
     return (
       <div className="signupstyle">

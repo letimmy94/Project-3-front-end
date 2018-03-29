@@ -12,6 +12,7 @@ class TeamInfo extends Component {
         captain: {
           firstName: '',
           lastName: '',
+          position: '',
           email: ''
         },
         record: {
@@ -57,6 +58,8 @@ class TeamInfo extends Component {
         <h1 className="info">Team Info</h1>
         <h2>{this.state.team.name}</h2>
         <h4>{this.state.team.captain.firstName}</h4>
+        <h4>{this.state.team.captain.lastName}</h4>
+        <h4>{this.state.team.captain.position}</h4>
         <h4>{this.state.team.color}</h4>
         <table>
           <thead>
@@ -128,12 +131,6 @@ class TeamInfo extends Component {
               <th> {this.state.team.players[9].firstName}</th>
               <th> {this.state.team.players[9].lastName}</th>
               <th> {this.state.team.players[9].position}</th>
-            </tr>
-            <tr>
-              <th>Player 11</th>
-              <th> {this.state.team.players[10].firstName}</th>
-              <th> {this.state.team.players[10].lastName}</th>
-              <th> {this.state.team.players[10].position}</th>
             </tr>
           </tbody>
         </table>

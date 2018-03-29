@@ -107,7 +107,7 @@ class TeamForm extends Component {
             />
           </div>
           <div>
-            <label htmlFor="captain">Coach:</label>
+            <label htmlFor="captain">Captain:</label>
             <input
               type="text"
               name="firstname"
@@ -120,6 +120,17 @@ class TeamForm extends Component {
               placeholder="Last Name"
               onChange={this.handleInput}
             />
+            <select
+              name="position0"
+              value={this.state.position0}
+              onChange={this.handleInput}
+            >
+              <option>Please choose a position</option>
+              <option value="F">Forward</option>
+              <option value="M">Midfielder</option>
+              <option value="D">Defender</option>
+              <option value="GK">Goalkeeper</option>
+            </select>
             <input
               type="text"
               name="email"
@@ -378,32 +389,6 @@ class TeamForm extends Component {
             <select
               name="position10"
               value={this.state.position10}
-              onChange={this.handleInput}
-            >
-              <option>Please choose a position</option>
-              <option value="F">Forward</option>
-              <option value="M">Midfielder</option>
-              <option value="D">Defender</option>
-              <option value="GK">Goalkeeper</option>
-            </select>
-          </div>
-          <div>
-            <label htmlFor="players">Player:</label>
-            <input
-              type="text"
-              name="firstname11"
-              placeholder="First Name"
-              onChange={this.handleInput}
-            />
-            <input
-              type="text"
-              name="lastname11"
-              placeholder="Last Name"
-              onChange={this.handleInput}
-            />
-            <select
-              name="position11"
-              value={this.state.position11}
               onChange={this.handleInput}
             >
               <option>Please choose a position</option>

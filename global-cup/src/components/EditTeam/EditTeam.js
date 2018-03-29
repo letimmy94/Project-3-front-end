@@ -9,6 +9,7 @@ class EditTeam extends Component {
       color: '',
       firstname: '',
       lastname: '',
+      position0: '',
       email: '',
       firstname1: '',
       lastname1: '',
@@ -58,6 +59,7 @@ class EditTeam extends Component {
           color: team.color,
           firstname: team.captain.firstName,
           lastname: team.captain.lastName,
+          position0: team.captain.position,
           email: team.captain.email,
           firstname1: team.players[0].firstName,
           lastname1: team.players[0].lastName,
@@ -111,6 +113,7 @@ class EditTeam extends Component {
         captain: {
           firstName: this.state.firstname,
           lastName: this.state.lastname,
+          position: this.state.position0,
           email: this.state.email
         },
         players: [
@@ -205,6 +208,16 @@ class EditTeam extends Component {
               onChange={this.handleChange}
               value={this.state.lastname}
             />
+            <select
+              name="position0"
+              value={this.state.position0}
+              onChange={this.handleChange}
+            >
+              <option value="F">Forward</option>
+              <option value="M">Midfielder</option>
+              <option value="D">Defender</option>
+              <option value="GK">Goalkeeper</option>
+            </select>
             <input
               type="text"
               name="email"
