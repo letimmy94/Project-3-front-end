@@ -1,9 +1,18 @@
 .nav {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
   margin: auto 0;
-  background: green;
+  background: #08a285;
   width: auto;
+  height: 50px;
+}
+
+a:link {
+  color: white;
+  text-decoration: none;
+}
+
+.link {
   color: white;
 }

@@ -6,11 +6,21 @@ class NavBar extends Component {
   render() {
     return (
       <div className="nav">
-        <Link to="/">Home</Link>
-        <Link to="/teams">Teams</Link>
-        <Link to="/new">Add Teams</Link>
-        <Link to="/login">Log In</Link>
-        <Link to="/signup">Sign Up</Link>
+        <Link className="link" to="/">
+          Home
+        </Link>
+        <Link className="link" to="/teams">
+          Teams
+        </Link>
+        <Link className="link" to="/new">
+          Add Teams
+        </Link>
+        <Link className="link" to="/login">
+          Log In
+        </Link>
+        <Link className="link" to="/signup">
+          Sign Up
+        </Link>
       </div>
     )
   }
