@@ -24,6 +24,14 @@ class TeamInfo extends Component {
         color: ''
       }
     }
+    this.deleteTeam = this.deleteTeam.bind(this)
+  }
+
+  deleteTeam(e) {
+    let teamId = e.target.id
+    axios.delete(`http://localhost:4000/teams/${teamId}`, {
+      params: { _id: teamId }
+    })
   }
 
   componentDidMount() {
@@ -131,6 +139,9 @@ class TeamInfo extends Component {
         </table>
         <button>
           <Link to={path}>Edit</Link>
+        </button>
+        <button id={this.state.team._id} onClick={this.deleteTeam}>
+          Delete
         </button>
       </div>
     )
