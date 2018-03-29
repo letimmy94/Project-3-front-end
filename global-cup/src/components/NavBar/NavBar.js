@@ -1,26 +1,32 @@
 import React, { Component } from 'react'
 import './NavBar.css'
 import { Route, Link } from 'react-router-dom'
+import LogOut from '../LogOut/LogOut'
+import Login from '../Login/Login'
 
 class NavBar extends Component {
   render() {
+    let newNav
+    if (this.props.isLoggedIn) {
+      newNav = (
+        <div>
+          <Link to="/logout">Log Out</Link>
+        </div>
+      )
+    } else {
+      newNav = (
+        <div>
+          <Link to="/login">Log In</Link>
+          <Link to="/signup">Sign Up</Link>
+        </div>
+      )
+    }
     return (
       <div className="nav">
-        <Link className="link" to="/">
-          Home
-        </Link>
-        <Link className="link" to="/teams">
-          Teams
-        </Link>
-        <Link className="link" to="/new">
-          Add Teams
-        </Link>
-        <Link className="link" to="/login">
-          Log In
-        </Link>
-        <Link className="link" to="/signup">
-          Sign Up
-        </Link>
+        <Link to="/">Home</Link>
+        <Link to="/teams">Teams</Link>
+        <Link to="/new">Add Teams</Link>
+        {newNav}
       </div>
     )
   }

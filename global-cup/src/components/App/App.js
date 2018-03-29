@@ -6,6 +6,7 @@ import NavBar from '../NavBar/NavBar'
 import TeamForm from '../TeamForm/TeamForm'
 import Signup from '../Signup/Signup'
 import Login from '../Login/Login'
+import LogOut from '../LogOut/LogOut'
 import './App.css'
 import TeamInfo from '../TeamInfo/TeamInfo'
 import EditTeam from '../EditTeam/EditTeam'
@@ -16,8 +17,16 @@ class App extends Component {
   constructor() {
     super()
     this.state = {
-      teams: []
+      teams: [],
+      email: '',
+      password: '',
+      isLoggedIn: false
     }
+
+    this.handleLogOut = this.handleLogOut.bind(this)
+    this.handleInput = this.handleInput.bind(this)
+    this.handleLogIn = this.handleLogIn.bind(this)
+    this.handleSignUp = this.handleSignUp.bind(this)
   }
 
   componentDidMount() {
@@ -35,7 +44,64 @@ class App extends Component {
         })
         console.log(this.state)
       })
+    if (localStorage.token) {
+      this.setState({
+        isLoggedIn: true
+      })
+    } else {
+      this.setState({
+        isLoggedIn: false
+      })
+    }
   }
+
+  handleInput(e) {
+    this.setState({
+      [e.target.name]: e.target.value
+    })
+  }
+
+  handleSignUp(e) {
+    e.preventDefault()
+    axios
+      .post('http://localhost:4000/users/signup', {
+        email: this.state.email,
+        password: this.state.password
+      })
+      .then(response => {
+        localStorage.token = response.data.token
+        this.setState({
+          isLoggedIn: true
+        })
+      })
+      .catch(err => console.log(err))
+  }
+
+  handleLogIn(e) {
+    e.preventDefault()
+    axios
+      .post('http://localhost:4000/users/login', {
+        email: this.state.email,
+        password: this.state.password
+      })
+      .then(response => {
+        localStorage.token = response.data.token
+        this.setState({
+          isLoggedIn: true
+        })
+      })
+      .catch(err => console.log(err))
+  }
+
+  handleLogOut() {
+    this.setState({
+      email: '',
+      password: '',
+      isLoggedIn: false
+    })
+    localStorage.clear()
+  }
+
   render() {
     return (
       <div className="App">
@@ -44,7 +110,7 @@ class App extends Component {
         </header>
 
         <div className="navbar">
-          <NavBar />
+          <NavBar isLoggedIn={this.state.isLoggedIn} />
         </div>
         <Switch>
           <Route
@@ -74,14 +140,40 @@ class App extends Component {
           />
           <Route
             path="/signup"
-            render={() => {
-              return <Signup />
+            render={props => {
+              return (
+                <Signup
+                  {...props}
+                  isLoggedIn={this.state.isLoggedIn}
+                  handleInput={this.handleInput}
+                  handleSignUp={this.handleSignUp}
+                />
+              )
             }}
           />
           <Route
             path="/login"
-            render={() => {
-              return <Login />
+            render={props => {
+              return (
+                <Login
+                  {...props}
+                  isLoggedIn={this.state.isLoggedIn}
+                  handleInput={this.handleInput}
+                  handleLogIn={this.handleLogIn}
+                />
+              )
+            }}
+          />
+          <Route
+            path="/logout"
+            render={props => {
+              return (
+                <LogOut
+                  {...props}
+                  isLoggedIn={this.state.isLoggedIn}
+                  handleLogOut={this.handleLogOut}
+                />
+              )
             }}
           />
         </Switch>
