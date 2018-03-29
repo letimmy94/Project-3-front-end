@@ -6,19 +6,41 @@ class EditTeam extends Component {
     super(props)
     this.state = {
       team: {
-        captain: {
-          firstName: '',
-          lastName: '',
-          email: ''
-        },
-        record: {
-          wins: '',
-          losses: '',
-          draws: ''
-        },
         name: '',
-        players: ['', '', '', '', '', '', '', '', '', '', ''],
-        color: ''
+        color: '',
+        firstname: '',
+        lastname: '',
+        email: '',
+        firstname1: '',
+        lastname1: '',
+        position1: '',
+        firstname2: '',
+        lastname2: '',
+        position2: '',
+        firstname3: '',
+        lastname3: '',
+        position3: '',
+        firstname4: '',
+        lastname4: '',
+        position4: '',
+        firstname5: '',
+        lastname5: '',
+        position5: '',
+        firstname6: '',
+        lastname6: '',
+        position6: '',
+        firstname7: '',
+        lastname7: '',
+        position7: '',
+        firstname8: '',
+        lastname8: '',
+        position8: '',
+        firstname9: '',
+        lastname9: '',
+        position9: '',
+        firstname10: '',
+        lastname10: '',
+        position10: ''
       }
     }
   }
@@ -31,7 +53,41 @@ class EditTeam extends Component {
       })
       .then(() => {
         this.setState({
-          team: team
+          name: team.name,
+          color: team.color,
+          firstname: team.captain.firstName,
+          lastname: team.captain.lastName,
+          email: team.captain.email,
+          firstname1: team.players[0].firstName,
+          lastname1: team.players[0].lastName,
+          position1: team.players[0].position,
+          firstname2: team.players[1].firstName,
+          lastname2: team.players[1].lastName,
+          position2: team.players[1].position,
+          firstname3: team.players[2].firstName,
+          lastname3: team.players[2].lastName,
+          position3: team.players[2].position,
+          firstname4: team.players[3].firstName,
+          lastname4: team.players[3].lastName,
+          position4: team.players[3].position,
+          firstname5: team.players[4].firstName,
+          lastname5: team.players[4].lastName,
+          position5: team.players[4].position,
+          firstname6: team.players[5].firstName,
+          lastname6: team.players[5].lastName,
+          position6: team.players[5].position,
+          firstname7: team.players[6].firstName,
+          lastname7: team.players[6].lastName,
+          position7: team.players[6].position,
+          firstname8: team.players[7].firstName,
+          lastname8: team.players[7].lastName,
+          position8: team.players[7].position,
+          firstname9: team.players[8].firstName,
+          lastname9: team.players[8].lastName,
+          position9: team.players[8].position,
+          firstname10: team.players[9].firstName,
+          lastname10: team.players[9].lastName,
+          position10: team.players[9].position
         })
         console.log(this.state)
       })
@@ -47,68 +103,68 @@ class EditTeam extends Component {
     e.preventDefault()
     axios
       .put('http://localhost:4000/teams/edit/:id', {
-        name: this.state.team.name,
-        color: this.state.team.color,
+        name: this.state.name,
+        color: this.state.color,
         captain: {
-          firstName: this.state.team.captain.firstname,
-          lastName: this.state.team.captain.lastname,
-          email: this.state.team.captain.email
+          firstName: this.state.firstname,
+          lastName: this.state.lastname,
+          email: this.state.email
         },
         players: [
           {
-            firstName: this.state.team.players[0].firstname,
-            lastName: this.state.team.players[0].lastname,
-            position: this.state.team.players[0].position
+            firstName: this.state.firstname1,
+            lastName: this.state.lastname1,
+            position: this.state.position1
           },
           {
-            firstName: this.state.team.players[1].firstname,
-            lastName: this.state.team.players[1].lastname,
-            position: this.state.team.players[1].position
+            firstName: this.state.firstname2,
+            lastName: this.state.lastname2,
+            position: this.state.position2
           },
           {
-            firstName: this.state.team.players[2].firstname,
-            lastName: this.state.team.players[2].lastname,
-            position: this.state.team.players[2].position
+            firstName: this.state.firstname3,
+            lastName: this.state.lastname3,
+            position: this.state.position3
           },
           {
-            firstName: this.state.team.players[3].firstname,
-            lastName: this.state.team.players[3].lastname,
-            position: this.state.team.players[3].position
+            firstName: this.state.firstname4,
+            lastName: this.state.lastname4,
+            position: this.state.position4
           },
           {
-            firstName: this.state.team.players[4].firstname,
-            lastName: this.state.team.players[4].lastname,
-            position: this.state.team.players[4].position
+            firstName: this.state.firstname5,
+            lastName: this.state.lastname5,
+            position: this.state.position5
           },
           {
-            firstName: this.state.team.players[5].firstname,
-            lastName: this.state.team.players[5].lastname,
-            position: this.state.team.players[5].position
+            firstName: this.state.firstname6,
+            lastName: this.state.lastname6,
+            position: this.state.position6
           },
           {
-            firstName: this.state.team.players[6].firstname,
-            lastName: this.state.team.players[6].lastname,
-            position: this.state.team.players[6].position
+            firstName: this.state.firstname7,
+            lastName: this.state.lastname7,
+            position: this.state.position7
           },
           {
-            firstName: this.state.team.players[7].firstname,
-            lastName: this.state.team.players[7].lastname,
-            position: this.state.team.players[7].position
+            firstName: this.state.firstname8,
+            lastName: this.state.lastname8,
+            position: this.state.position8
           },
           {
-            firstName: this.state.team.players[8].firstname,
-            lastName: this.state.team.players[8].lastName,
-            position: this.state.team.players[8].position
+            firstName: this.state.firstname9,
+            lastName: this.state.lastName9,
+            position: this.state.position9
           },
           {
-            firstName: this.state.team.players[9].firstname,
-            lastName: this.state.team.players[9].lastname,
-            position: this.state.team.players[9].position
+            firstName: this.state.firstname10,
+            lastName: this.state.lastname10,
+            position: this.state.position10
           },
           {
-            firstName: this.state.team.players[10].firstname,
-            lastName: this.state.team.players[10].lastname,
-            position: this.state.team.players[10].position
+            firstName: this.state.firstname11,
+            lastName: this.state.lastname11,
+            position: this.state.position11
           }
         ]
       })
@@ -134,24 +190,24 @@ class EditTeam extends Component {
             <label htmlFor="captain">Captain:</label>
             <input
               type="text"
-              name="team.captain.firstName"
+              name="firstname"
               placeholder="First Name"
               onChange={this.handleChange}
-              value={this.state.team.captain.firstName}
+              value={this.state.team.firstname}
             />
             <input
               type="text"
               name="lastname"
               placeholder="Last Name"
               onChange={this.handleChange}
-              value={this.state.team.captain.lastName}
+              value={this.state.team.lastname}
             />
             <input
               type="text"
               name="email"
               placeholder="Email"
               onChange={this.handleChange}
-              value={this.state.team.captain.email}
+              value={this.state.team.email}
             />
           </div>
           <div>
@@ -161,14 +217,14 @@ class EditTeam extends Component {
               name="firstname1"
               placeholder="First Name"
               onChange={this.handleChange}
-              value={this.state.team.firstName}
+              value={this.state.team.firstname1}
             />
             <input
               type="text"
               name="lastname1"
               placeholder="Last Name"
               onChange={this.handleChange}
-              value={this.state.team.lastName}
+              value={this.state.team.lastname1}
             />
             <select
               name="position1"
@@ -188,14 +244,14 @@ class EditTeam extends Component {
               name="firstname2"
               placeholder="First Name"
               onChange={this.handleChange}
-              value={this.state.team.firstName}
+              value={this.state.team.firstname2}
             />
             <input
               type="text"
               name="lastname2"
               placeholder="Last Name"
               onChange={this.handleChange}
-              value={this.state.team.lastName}
+              value={this.state.team.lastname2}
             />
             <select
               name="position2"
@@ -215,14 +271,14 @@ class EditTeam extends Component {
               name="firstname3"
               placeholder="First Name"
               onChange={this.handleChange}
-              value={this.state.team.firstName}
+              value={this.state.team.firstname3}
             />
             <input
               type="text"
               name="lastname3"
               placeholder="Last Name"
               onChange={this.handleChange}
-              value={this.state.team.lastName}
+              value={this.state.team.lastname3}
             />
             <select
               name="position3"
@@ -242,14 +298,14 @@ class EditTeam extends Component {
               name="firstname4"
               placeholder="First Name"
               onChange={this.handleChange}
-              value={this.state.team.firstName}
+              value={this.state.team.firstname4}
             />
             <input
               type="text"
               name="lastname4"
               placeholder="Last Name"
               onChange={this.handleChange}
-              value={this.state.team.lastName}
+              value={this.state.team.lastname4}
             />
             <select
               name="position4"
@@ -269,14 +325,14 @@ class EditTeam extends Component {
               name="firstname5"
               placeholder="First Name"
               onChange={this.handleChange}
-              value={this.state.team.firstName}
+              value={this.state.team.firstname5}
             />
             <input
               type="text"
               name="lastname5"
               placeholder="Last Name"
               onChange={this.handleChange}
-              value={this.state.team.lastName}
+              value={this.state.team.lastname5}
             />
             <select
               name="position5"
@@ -296,14 +352,14 @@ class EditTeam extends Component {
               name="firstname6"
               placeholder="First Name"
               onChange={this.handleChange}
-              value={this.state.team.firstName}
+              value={this.state.team.firstname6}
             />
             <input
               type="text"
               name="lastname6"
               placeholder="Last Name"
               onChange={this.handleChange}
-              value={this.state.team.lastName}
+              value={this.state.team.lastname6}
             />
             <select
               name="position6"
@@ -323,14 +379,14 @@ class EditTeam extends Component {
               name="firstname7"
               placeholder="First Name"
               onChange={this.handleChange}
-              value={this.state.team.firstName}
+              value={this.state.team.firstname7}
             />
             <input
               type="text"
               name="lastname7"
               placeholder="Last Name"
               onChange={this.handleChange}
-              value={this.state.team.lastName}
+              value={this.state.team.lastname7}
             />
             <select
               name="position7"
@@ -350,14 +406,14 @@ class EditTeam extends Component {
               name="firstname8"
               placeholder="First Name"
               onChange={this.handleChange}
-              value={this.state.team.firstName}
+              value={this.state.team.firstname8}
             />
             <input
               type="text"
               name="lastname8"
               placeholder="Last Name"
               onChange={this.handleChange}
-              value={this.state.team.lastName}
+              value={this.state.team.lastname8}
             />
             <select
               name="position8"
@@ -377,14 +433,14 @@ class EditTeam extends Component {
               name="firstname9"
               placeholder="First Name"
               onChange={this.handleChange}
-              value={this.state.team.firstName}
+              value={this.state.team.firstname9}
             />
             <input
               type="text"
               name="lastname9"
               placeholder="Last Name"
               onChange={this.handleChange}
-              value={this.state.team.lastName}
+              value={this.state.team.lastname9}
             />
             <select
               name="position9"
@@ -404,45 +460,18 @@ class EditTeam extends Component {
               name="firstname10"
               placeholder="First Name"
               onChange={this.handleChange}
-              value={this.state.team.firstName}
+              value={this.state.team.firstname10}
             />
             <input
               type="text"
               name="lastname10"
               placeholder="Last Name"
               onChange={this.handleChange}
-              value={this.state.team.lastName}
+              value={this.state.team.lastname10}
             />
             <select
               name="position10"
               value={this.state.team.position10}
-              onChange={this.handleChange}
-            >
-              <option value="F">Forward</option>
-              <option value="M">Midfielder</option>
-              <option value="D">Defender</option>
-              <option value="GK">Goalkeeper</option>
-            </select>
-          </div>
-          <div>
-            <label htmlFor="players">Player 11:</label>
-            <input
-              type="text"
-              name="firstname11"
-              placeholder="First Name"
-              onChange={this.handleChange}
-              value={this.state.team.firstName}
-            />
-            <input
-              type="text"
-              name="lastname11"
-              placeholder="Last Name"
-              onChange={this.handleChange}
-              value={this.state.team.lastName}
-            />
-            <select
-              name="position11"
-              value={this.state.team.position11}
               onChange={this.handleChange}
             >
               <option value="F">Forward</option>

@@ -44,9 +44,6 @@ class App extends Component {
         })
         console.log(this.state)
       })
-  }
-
-  componentDidMount() {
     if (localStorage.token) {
       this.setState({
         isLoggedIn: true
@@ -80,15 +77,6 @@ class App extends Component {
       .catch(err => console.log(err))
   }
 
-  handleLogOut() {
-    this.setState({
-      email: '',
-      password: '',
-      isLoggedIn: false
-    })
-    localStorage.clear()
-  }
-
   handleLogIn(e) {
     e.preventDefault()
     axios
@@ -103,6 +91,15 @@ class App extends Component {
         })
       })
       .catch(err => console.log(err))
+  }
+
+  handleLogOut() {
+    this.setState({
+      email: '',
+      password: '',
+      isLoggedIn: false
+    })
+    localStorage.clear()
   }
 
   render() {
@@ -155,18 +152,6 @@ class App extends Component {
             }}
           />
           <Route
-            path="/logout"
-            render={props => {
-              return (
-                <LogOut
-                  {...props}
-                  isLoggedIn={this.state.isLoggedIn}
-                  handleLogOut={this.handleLogOut}
-                />
-              )
-            }}
-          />
-          <Route
             path="/login"
             render={props => {
               return (
@@ -175,6 +160,18 @@ class App extends Component {
                   isLoggedIn={this.state.isLoggedIn}
                   handleInput={this.handleInput}
                   handleLogIn={this.handleLogIn}
+                />
+              )
+            }}
+          />
+          <Route
+            path="/logout"
+            render={props => {
+              return (
+                <LogOut
+                  {...props}
+                  isLoggedIn={this.state.isLoggedIn}
+                  handleLogOut={this.handleLogOut}
                 />
               )
             }}
