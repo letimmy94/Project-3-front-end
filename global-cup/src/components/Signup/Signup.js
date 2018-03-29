@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Route, Link, Switch, Redirect } from 'react-router-dom'
 import axios from 'axios'
 import './SignupStyle.css'
 
@@ -57,9 +58,11 @@ class Signup extends Component {
               onChange={this.props.handleInput}
             />
           </div>
-          <button type="submit" onClick={this.props.handleSignUp}>
-            Create an Account!
-          </button>
+          <Link to="/teams">
+            <button type="submit" onClick={this.props.handleSignUp}>
+              Create an Account!
+            </button>
+          </Link>
         </form>
       </div>
     )

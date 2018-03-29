@@ -29,9 +29,13 @@ class TeamInfo extends Component {
 
   deleteTeam(e) {
     let teamId = e.target.id
-    axios.delete(`http://localhost:4000/teams/${teamId}`, {
-      params: { _id: teamId }
-    })
+    axios
+      .delete(`http://localhost:4000/teams/${teamId}`, {
+        params: { _id: teamId }
+      })
+      .then(res => {
+        this.props.updateBigStateInApp(res.data)
+      })
   }
 
   componentDidMount() {

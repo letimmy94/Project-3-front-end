@@ -27,6 +27,11 @@ class App extends Component {
     this.handleInput = this.handleInput.bind(this)
     this.handleLogIn = this.handleLogIn.bind(this)
     this.handleSignUp = this.handleSignUp.bind(this)
+    this.updateBigStateInApp = this.updateBigStateInApp.bind(this)
+  }
+
+  updateBigStateInApp(data) {
+    this.setState({ teams: data })
   }
 
   componentDidMount() {
@@ -116,19 +121,29 @@ class App extends Component {
           <Route
             path="/new"
             render={() => {
-              return <TeamForm />
+              return <TeamForm updateBigStateInApp={this.updateBigStateInApp} />
             }}
           />
           <Route
             path="/teams/edit/:id"
             render={props => {
-              return <EditTeam {...props} />
+              return (
+                <EditTeam
+                  updateBigStateInApp={this.updateBigStateInApp}
+                  {...props}
+                />
+              )
             }}
           />
           <Route
             path="/teams/:id"
             render={props => {
-              return <TeamInfo {...props} />
+              return (
+                <TeamInfo
+                  updateBigStateInApp={this.updateBigStateInApp}
+                  {...props}
+                />
+              )
             }}
           />
 
