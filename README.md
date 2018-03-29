@@ -2,27 +2,34 @@
 
 ## Description
 
-Global Cup is a fantasy football team creator which allows you to create a custom team which consists of 5 players and a coach. Each player and coach would have their own attributes, including their names and ratings.
+Global Cup is an application which allows local recreational soccer teams to easily manage their roster(s). Coaches can edit player's names and positions. The app is a work in progress.
 
 ## List of Features
 
 ### MVP:
 
-    - Display team names
-    - Ability to add/edit/delete team
+* CRUD ✓
 
 ### Bronze:
 
-    - Team logos
-    - Pictures of players
+* Team logos
+* Pictures of players
 
 ### Silver:
 
-    - Player ratings and other attributes
-    - Team formation map
+* Player ratings and other attributes
+* Team formation map
 
 ### Gold:
 
-    - Authentication
-    - Simulation matches
-    - Standings
+* Authentication ✓
+* Scheduling ✓
+* Standings
+
+## List of Technologies used
+
+* React
+* Mongoose
+* Express
+* Node
+* Heroku/Surge
