@@ -53,7 +53,7 @@ class TeamInfo extends Component {
     let path = `/teams/edit/${this.props.match.params.id}`
 
     return (
-      <div>
+      <div className="teamContainer">
         <h1 className="info">Team Info</h1>
         <h2>{this.state.team.name}</h2>
         <h4>{this.state.team.captain.firstName}</h4>
@@ -140,9 +140,11 @@ class TeamInfo extends Component {
         <button>
           <Link to={path}>Edit</Link>
         </button>
-        <button id={this.state.team._id} onClick={this.deleteTeam}>
-          Delete
-        </button>
+        <Link to="/teams">
+          <button id={this.state.team._id} onClick={this.deleteTeam}>
+            Delete
+          </button>
+        </Link>
       </div>
     )
   }
