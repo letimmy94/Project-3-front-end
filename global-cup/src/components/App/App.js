@@ -67,7 +67,7 @@ class App extends Component {
   }
 
   handleSignUp(e) {
-    e.preventDefault()
+    // e.preventDefault()
     axios
       .post('http://localhost:4000/users/signup', {
         email: this.state.email,
@@ -83,7 +83,7 @@ class App extends Component {
   }
 
   handleLogIn(e) {
-    e.preventDefault()
+    // e.preventDefault()
     axios
       .post('http://localhost:4000/users/login', {
         email: this.state.email,
