@@ -5,24 +5,17 @@ header {
   height: 200px;
 }
 
-.App {
-  background: whitesmoke;
-}
-
 .App-title {
   display: flex;
   margin: auto;
   justify-content: center;
-  color: #08a285;
+  color: #4e4e4e;
+  background-color: #1dcfae7c;
   border: groove;
   border-radius: 50px;
   width: 30%;
   height: 22%;
   padding: 15px;
-}
-
-body {
-  background: white;
 }
 
 .bodyImage {

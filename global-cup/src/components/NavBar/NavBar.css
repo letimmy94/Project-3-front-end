@@ -3,20 +3,11 @@
   justify-content: space-around;
   align-items: center;
   margin: auto 0;
-  background: #08a285;
+  background: #1dcfaf;
   width: auto;
   height: 100px;
   border: solid;
   border-radius: 80px;
-}
-
-a:link {
-  color: white;
-  text-decoration: none;
-}
-
-.link {
-  color: white;
 }
 
 .auth {
