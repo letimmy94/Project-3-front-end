@@ -40,7 +40,7 @@ class Login extends Component {
               Password:
             </label>
             <input
-              type="text"
+              type="password"
               name="password"
               onChange={this.props.handleInput}
             />

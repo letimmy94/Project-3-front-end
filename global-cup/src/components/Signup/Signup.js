@@ -27,7 +27,7 @@ class Signup extends Component {
             </label>
             <input
               className="signinput"
-              type="text"
+              type="password"
               name="password"
               placeholder="Enter Password"
               onChange={this.props.handleInput}
