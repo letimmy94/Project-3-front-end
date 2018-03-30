@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import { Route, Link, Switch, Redirect } from 'react-router-dom'
-import axios from 'axios'
+import { Link } from 'react-router-dom'
+
 import './SignupStyle.css'
 
 class Signup extends Component {

@@ -1,70 +1,23 @@
 import React, { Component } from 'react'
-import { Route, Link, Switch, Redirect } from 'react-router-dom'
-import axios from 'axios'
+import { Link } from 'react-router-dom'
 import './TeamInfo.css'
 
 class TeamInfo extends Component {
-  constructor(props) {
-    super(props)
-    console.log(this.props)
-    this.state = {
-      team: {
-        captain: {
-          firstName: '',
-          lastName: '',
-          position: '',
-          email: ''
-        },
-        record: {
-          wins: '',
-          losses: '',
-          draws: ''
-        },
-        name: '',
-        players: ['', '', '', '', '', '', '', '', '', '', ''],
-        color: ''
-      }
-    }
-    this.deleteTeam = this.deleteTeam.bind(this)
-  }
-
-  deleteTeam(e) {
-    let teamId = e.target.id
-    axios
-      .delete(`http://localhost:4000/teams/${teamId}`, {
-        params: { _id: teamId }
-      })
-      .then(res => {
-        this.props.updateBigStateInApp(res.data)
-      })
-  }
-
-  componentDidMount() {
-    let team
-    axios
-      .get(`http://localhost:4000/teams/${this.props.match.params.id}`)
-      .then(res => {
-        team = res.data
-      })
-      .then(() => {
-        this.setState({
-          team: team
-        })
-        console.log(this.state)
-      })
-  }
-
   render() {
     let path = `/teams/edit/${this.props.match.params.id}`
+    let team = this.props.teams.filter(team => {
+      return team._id === this.props.match.params.id
+    })
 
+    console.log(team)
     return (
       <div className="teamContainer">
         <h1 className="info">Team Info</h1>
-        <h2>{this.state.team.name}</h2>
-        <h4>{this.state.team.captain.firstName}</h4>
-        <h4>{this.state.team.captain.lastName}</h4>
-        <h4>{this.state.team.captain.position}</h4>
-        <h4>{this.state.team.color}</h4>
+        <h2>{team[0].name}</h2>
+        <h4>{team[0].captain.firstName}</h4>
+        <h4>{team[0].captain.lastName}</h4>
+        <h4>{team[0].captain.position}</h4>
+        <h4>{team[0].color}</h4>
         <table>
           <thead>
             <tr>
@@ -78,63 +31,63 @@ class TeamInfo extends Component {
           <tbody>
             <tr>
               <th>Player 1</th>
-              <th> {this.state.team.players[0].firstName}</th>
-              <th> {this.state.team.players[0].lastName}</th>
-              <th> {this.state.team.players[0].position}</th>
+              <th> {team[0].players[0].firstName}</th>
+              <th> {team[0].players[0].lastName}</th>
+              <th> {team[0].players[0].position}</th>
             </tr>
             <tr>
               <th>Player 2</th>
-              <th> {this.state.team.players[1].firstName}</th>
-              <th> {this.state.team.players[1].lastName}</th>
-              <th> {this.state.team.players[1].position}</th>
+              <th> {team[0].players[1].firstName}</th>
+              <th> {team[0].players[1].lastName}</th>
+              <th> {team[0].players[1].position}</th>
             </tr>
             <tr>
               <th>Player 3</th>
-              <th> {this.state.team.players[2].firstName}</th>
-              <th> {this.state.team.players[2].lastName}</th>
-              <th> {this.state.team.players[2].position}</th>
+              <th> {team[0].players[2].firstName}</th>
+              <th> {team[0].players[2].lastName}</th>
+              <th> {team[0].players[2].position}</th>
             </tr>
             <tr>
               <th>Player 4</th>
-              <th> {this.state.team.players[3].firstName}</th>
-              <th> {this.state.team.players[3].lastName}</th>
-              <th> {this.state.team.players[3].position}</th>
+              <th> {team[0].players[3].firstName}</th>
+              <th> {team[0].players[3].lastName}</th>
+              <th> {team[0].players[3].position}</th>
             </tr>
             <tr>
               <th>Player 5</th>
-              <th> {this.state.team.players[4].firstName}</th>
-              <th> {this.state.team.players[4].lastName}</th>
-              <th> {this.state.team.players[4].position}</th>
+              <th> {team[0].players[4].firstName}</th>
+              <th> {team[0].players[4].lastName}</th>
+              <th> {team[0].players[4].position}</th>
             </tr>
             <tr>
               <th>Player 6</th>
-              <th> {this.state.team.players[5].firstName}</th>
-              <th> {this.state.team.players[5].lastName}</th>
-              <th> {this.state.team.players[5].position}</th>
+              <th> {team[0].players[5].firstName}</th>
+              <th> {team[0].players[5].lastName}</th>
+              <th> {team[0].players[5].position}</th>
             </tr>
             <tr>
               <th>Player 7</th>
-              <th> {this.state.team.players[6].firstName}</th>
-              <th> {this.state.team.players[6].lastName}</th>
-              <th> {this.state.team.players[6].position}</th>
+              <th> {team[0].players[6].firstName}</th>
+              <th> {team[0].players[6].lastName}</th>
+              <th> {team[0].players[6].position}</th>
             </tr>
             <tr>
               <th>Player 8</th>
-              <th> {this.state.team.players[7].firstName}</th>
-              <th> {this.state.team.players[7].lastName}</th>
-              <th> {this.state.team.players[7].position}</th>
+              <th> {team[0].players[7].firstName}</th>
+              <th> {team[0].players[7].lastName}</th>
+              <th> {team[0].players[7].position}</th>
             </tr>
             <tr>
               <th>Player 9</th>
-              <th> {this.state.team.players[8].firstName}</th>
-              <th> {this.state.team.players[8].lastName}</th>
-              <th> {this.state.team.players[8].position}</th>
+              <th> {team[0].players[8].firstName}</th>
+              <th> {team[0].players[8].lastName}</th>
+              <th> {team[0].players[8].position}</th>
             </tr>
             <tr>
               <th>Player 10</th>
-              <th> {this.state.team.players[9].firstName}</th>
-              <th> {this.state.team.players[9].lastName}</th>
-              <th> {this.state.team.players[9].position}</th>
+              <th> {team[0].players[9].firstName}</th>
+              <th> {team[0].players[9].lastName}</th>
+              <th> {team[0].players[9].position}</th>
             </tr>
           </tbody>
         </table>
@@ -142,7 +95,7 @@ class TeamInfo extends Component {
           <Link to={path}>Edit</Link>
         </button>
         <Link to="/teams">
-          <button id={this.state.team._id} onClick={this.deleteTeam}>
+          <button id={team[0]._id} onClick={this.props.deleteTeam}>
             Delete
           </button>
         </Link>
