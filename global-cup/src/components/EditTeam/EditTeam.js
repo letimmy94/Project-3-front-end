@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom'
 
 class EditTeam extends Component {
   render() {
-    console.log(this.props)
     let team = this.props.teams.filter(team => {
       return team._id === this.props.match.params.id
     })
