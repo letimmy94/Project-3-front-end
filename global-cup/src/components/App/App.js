@@ -34,6 +34,7 @@ class App extends Component {
     this.handleNewTeamSubmit = this.handleNewTeamSubmit.bind(this)
     this.handleEditInput = this.handleEditInput.bind(this)
     this.handleEditSubmit = this.handleEditSubmit.bind(this)
+    this.handleEdit = this.handleEdit.bind(this)
   }
 
   handleNewTeamInput(e) {
@@ -120,14 +121,60 @@ class App extends Component {
       })
   }
 
+  handleEdit(team) {
+    this.setState({
+      editTeam: {
+        firstname: team.captain.firstName,
+        lastname: team.captain.lastName,
+        position: team.captain.position,
+        email: team.captain.email,
+        color: team.color,
+        name: team.name,
+        firstname1: team.players[0].firstName,
+        lastname1: team.players[0].lastName,
+        position1: team.players[0].position,
+        firstname2: team.players[1].firstName,
+        lastname2: team.players[1].lastName,
+        position2: team.players[1].position,
+        firstname3: team.players[2].firstName,
+        lastname3: team.players[2].lastName,
+        position3: team.players[2].position,
+        firstname4: team.players[3].firstName,
+        lastname4: team.players[3].lastName,
+        position4: team.players[3].position,
+        firstname5: team.players[4].firstName,
+        lastname5: team.players[4].lastName,
+        position5: team.players[4].position,
+        firstname6: team.players[5].firstName,
+        lastname6: team.players[5].lastName,
+        position6: team.players[5].position,
+        firstname7: team.players[6].firstName,
+        lastname7: team.players[6].lastName,
+        position7: team.players[6].position,
+        firstname8: team.players[7].firstName,
+        lastname8: team.players[7].lastName,
+        position8: team.players[7].position,
+        firstname9: team.players[8].firstName,
+        lastname9: team.players[8].lastName,
+        position9: team.players[8].position,
+        firstname10: team.players[9].firstName,
+        lastname10: team.players[9].lastName,
+        position10: team.players[9].position
+      }
+    })
+  }
+
   handleEditInput(e) {
     let team = { ...this.state.editTeam }
     let prop = [e.target.name]
     let value = e.target.value
-    let editTeam = Object.assign({}, team, { [prop]: value })
+    let editTeam = Object.assign({}, team, {
+      [prop]: value
+    })
     this.setState({
       editTeam: editTeam
     })
+    console.log(this.state.editTeam)
   }
 
   handleEditSubmit(e) {
@@ -184,7 +231,7 @@ class App extends Component {
           },
           {
             firstName: this.state.editTeam.firstname9,
-            lastName: this.state.editTeam.lastName9,
+            lastName: this.state.editTeam.lastname9,
             position: this.state.editTeam.position9
           },
           {
@@ -313,6 +360,7 @@ class App extends Component {
             render={props => {
               return (
                 <EditTeam
+                  handleEdit={this.handleEdit}
                   handleEditInput={this.handleEditInput}
                   handleEditSubmit={this.handleEditSubmit}
                   {...props}

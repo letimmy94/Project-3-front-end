@@ -2,10 +2,17 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 
 class EditTeam extends Component {
+  componentDidMount() {
+    let team = this.props.teams.filter(team => {
+      return team._id === this.props.match.params.id
+    })
+    this.props.handleEdit(team[0])
+  }
   render() {
     let team = this.props.teams.filter(team => {
       return team._id === this.props.match.params.id
     })
+
     return (
       <div>
         <form>
