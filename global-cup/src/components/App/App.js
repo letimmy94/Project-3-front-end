@@ -50,7 +50,7 @@ class App extends Component {
   handleNewTeamSubmit(e) {
     // e.preventDefault()
     axios
-      .post('http://localhost:4000/teams', {
+      .post('https://global-cup.herokuapp.com/teams', {
         name: this.state.newTeam.name,
         color: this.state.newTeam.color,
         captain: {
@@ -180,7 +180,7 @@ class App extends Component {
   handleEditSubmit(e) {
     let teamId = e.target.id
     axios
-      .put(`http://localhost:4000/teams/${teamId}`, {
+      .put(`https://global-cup.herokuapp.com/teams/${teamId}`, {
         name: this.state.editTeam.name,
         color: this.state.editTeam.color,
         captain: {
@@ -254,7 +254,7 @@ class App extends Component {
   deleteTeam(e) {
     let teamId = e.target.id
     axios
-      .delete(`http://localhost:4000/teams/${teamId}`, {
+      .delete(`https://global-cup.herokuapp.com/teams/${teamId}`, {
         params: { id: teamId }
       })
       .then(res => {
