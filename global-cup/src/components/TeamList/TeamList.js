@@ -11,7 +11,7 @@ class TeamList extends Component {
   render() {
     let path = `/teams/${this.props.team._id}`
     return (
-      <div>
+      <div className="each">
         <Link to={path}> {this.props.team.name} </Link>
         <p> {this.props.team.color} </p>
       </div>

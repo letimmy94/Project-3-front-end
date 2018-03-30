@@ -1,10 +1,11 @@
 header {
-  height: 175px;
-  /* background: #e31b23; */
-  background-size: contain;
+  display: flex;
+  margin: auto;
+  justify-content: center;
+  height: 200px;
 }
+
 .App {
-  /* background: linear-gradient(#e31b23, #ff7777); */
   background: whitesmoke;
 }
 
@@ -13,12 +14,26 @@ header {
   margin: auto;
   justify-content: center;
   color: #08a285;
-  background: whitesmoke;
-
-  border-radius: 5px;
-  width: 20%;
+  border: groove;
+  border-radius: 50px;
+  width: 30%;
+  height: 22%;
+  padding: 15px;
 }
 
 body {
   background: white;
+}
+
+.bodyImage {
+  display: flex;
+  margin: auto;
+  justify-content: center;
+  border: groove;
+  border-radius: 50px;
+}
+
+.headerImage {
+  height: 100px;
+  width: 1000px;
 }

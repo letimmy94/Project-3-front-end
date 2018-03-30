@@ -9,23 +9,33 @@ class NavBar extends Component {
     let newNav
     if (this.props.isLoggedIn) {
       newNav = (
-        <div>
+        <div className="logout">
           <Link to="/logout">Log Out</Link>
         </div>
       )
     } else {
       newNav = (
-        <div className>
-          <Link to="/login">Log In</Link>
-          <Link to="/signup">Sign Up</Link>
+        <div className="auth">
+          <p>
+            <Link to="/login">Log In</Link>
+          </p>
+          <p>
+            <Link to="/signup">Sign Up</Link>
+          </p>
         </div>
       )
     }
     return (
       <div className="nav">
-        <Link to="/">Home</Link>
-        <Link to="/teams">Teams</Link>
-        <Link to="/new">Add Teams</Link>
+        <p className="home">
+          <Link to="/">Home</Link>
+        </p>
+        <p className="teamz">
+          <Link to="/teams">Teams</Link>
+        </p>
+        <p className="addteam">
+          <Link to="/new">Add Teams</Link>
+        </p>
         {newNav}
       </div>
     )

@@ -11,6 +11,8 @@ import './App.css'
 import TeamInfo from '../TeamInfo/TeamInfo'
 import EditTeam from '../EditTeam/EditTeam'
 import axios from 'axios'
+import headerImage from './soccer-pattern-vector.jpg'
+import soccerImage from './soccerimage.jpeg'
 import { Route, Link, Switch, Redirect } from 'react-router-dom'
 
 class App extends Component {
@@ -113,7 +115,6 @@ class App extends Component {
         <header>
           <h1 className="App-title">Global Cup!</h1>
         </header>
-
         <div className="navbar">
           <NavBar isLoggedIn={this.state.isLoggedIn} />
         </div>
@@ -192,6 +193,7 @@ class App extends Component {
             }}
           />
         </Switch>
+        <img className="bodyImage" src={soccerImage} alt={'soccerImage'} />
       </div>
     )
   }

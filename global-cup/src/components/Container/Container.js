@@ -11,7 +11,7 @@ class Container extends Component {
     let teams = this.props.teams.map(team => {
       return <TeamList team={team} />
     })
-    return <div> {teams} </div>
+    return <div className="teams"> {teams} </div>
   }
 }
 
