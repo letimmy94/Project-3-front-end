@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
-import axios from 'axios'
+
 import './Login.css'
+import { Link } from 'react-router-dom'
 
 class Login extends Component {
   // constructor() {
@@ -44,9 +45,11 @@ class Login extends Component {
               onChange={this.props.handleInput}
             />
           </div>
-          <button type="submit" onClick={this.props.handleLogIn}>
-            Sign in!
-          </button>
+          <Link to="/">
+            <button type="submit" onClick={this.props.handleLogIn}>
+              Sign in!
+            </button>
+          </Link>
         </form>
       </div>
     )

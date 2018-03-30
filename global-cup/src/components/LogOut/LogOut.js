@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
 
 class LogOut extends Component {
   render() {
@@ -7,11 +8,14 @@ class LogOut extends Component {
         <h2>Log Out</h2>
 
         <form>
-          <input
-            value="Log Out"
-            type="submit"
-            onClick={this.props.handleLogOut}
-          />
+          <Link to="/">
+            <input
+              value="Log Out"
+              type="submit"
+              onClick={this.props.handleLogOut}
+              className="logoutlink"
+            />
+          </Link>
         </form>
       </div>
     )

@@ -1,24 +1,33 @@
 header {
-  height: 175px;
-  /* background: #e31b23; */
-  background-size: contain;
-}
-.App {
-  /* background: linear-gradient(#e31b23, #ff7777); */
-  background: whitesmoke;
+  display: flex;
+  margin: auto;
+  justify-content: center;
+  height: 200px;
 }
 
 .App-title {
   display: flex;
   margin: auto;
   justify-content: center;
-  color: #08a285;
-  background: whitesmoke;
-
-  border-radius: 5px;
-  width: 20%;
+  color: #ff0000;
+  background-color: #2b2c2d;
+  border: groove;
+  border-radius: 50px;
+  width: 30%;
+  height: 22%;
+  padding: 15px;
+  font-family: 'Bungee Inline';
 }
 
-body {
-  background: white;
+.bodyImage {
+  display: flex;
+  margin: auto;
+  justify-content: center;
+  border: groove;
+  border-radius: 100px;
+}
+
+.headerImage {
+  height: 100px;
+  width: 1000px;
 }

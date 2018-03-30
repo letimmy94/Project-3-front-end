@@ -1,184 +1,18 @@
 import React, { Component } from 'react'
-import axios from 'axios'
+import { Link } from 'react-router-dom'
 
 class EditTeam extends Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      name: '',
-      color: '',
-      firstname: '',
-      lastname: '',
-      email: '',
-      firstname1: '',
-      lastname1: '',
-      position1: '',
-      firstname2: '',
-      lastname2: '',
-      position2: '',
-      firstname3: '',
-      lastname3: '',
-      position3: '',
-      firstname4: '',
-      lastname4: '',
-      position4: '',
-      firstname5: '',
-      lastname5: '',
-      position5: '',
-      firstname6: '',
-      lastname6: '',
-      position6: '',
-      firstname7: '',
-      lastname7: '',
-      position7: '',
-      firstname8: '',
-      lastname8: '',
-      position8: '',
-      firstname9: '',
-      lastname9: '',
-      position9: '',
-      firstname10: '',
-      lastname10: '',
-      position10: ''
-    }
-
-    this.handleChange = this.handleChange.bind(this)
-    this.handleSubmit = this.handleSubmit.bind(this)
-  }
   componentDidMount() {
-    let team
-    axios
-      .get(
-        `https://global-cup.herokuapp.com/teams/${this.props.match.params.id}`
-      )
-      .then(res => {
-        team = res.data
-      })
-      .then(() => {
-        this.setState({
-          name: team.name,
-          color: team.color,
-          firstname: team.captain.firstName,
-          lastname: team.captain.lastName,
-          email: team.captain.email,
-          firstname1: team.players[0].firstName,
-          lastname1: team.players[0].lastName,
-          position1: team.players[0].position,
-          firstname2: team.players[1].firstName,
-          lastname2: team.players[1].lastName,
-          position2: team.players[1].position,
-          firstname3: team.players[2].firstName,
-          lastname3: team.players[2].lastName,
-          position3: team.players[2].position,
-          firstname4: team.players[3].firstName,
-          lastname4: team.players[3].lastName,
-          position4: team.players[3].position,
-          firstname5: team.players[4].firstName,
-          lastname5: team.players[4].lastName,
-          position5: team.players[4].position,
-          firstname6: team.players[5].firstName,
-          lastname6: team.players[5].lastName,
-          position6: team.players[5].position,
-          firstname7: team.players[6].firstName,
-          lastname7: team.players[6].lastName,
-          position7: team.players[6].position,
-          firstname8: team.players[7].firstName,
-          lastname8: team.players[7].lastName,
-          position8: team.players[7].position,
-          firstname9: team.players[8].firstName,
-          lastname9: team.players[8].lastName,
-          position9: team.players[8].position,
-          firstname10: team.players[9].firstName,
-          lastname10: team.players[9].lastName,
-          position10: team.players[9].position
-        })
-        console.log(this.state)
-      })
-  }
-
-  handleChange(e) {
-    this.setState({
-      [e.target.name]: e.target.value
+    let team = this.props.teams.filter(team => {
+      return team._id === this.props.match.params.id
     })
+    this.props.handleEdit(team[0])
   }
-
-  handleSubmit(e) {
-    e.preventDefault()
-    let teamId = e.target.id
-    console.log(teamId)
-    axios
-      .put(`https://global-cup.herokuapp.com/teams/edit/${teamId}`, {
-        name: this.state.name,
-        color: this.state.color,
-        captain: {
-          firstName: this.state.firstname,
-          lastName: this.state.lastname,
-          email: this.state.email
-        },
-        players: [
-          {
-            firstName: this.state.firstname1,
-            lastName: this.state.lastname1,
-            position: this.state.position1
-          },
-          {
-            firstName: this.state.firstname2,
-            lastName: this.state.lastname2,
-            position: this.state.position2
-          },
-          {
-            firstName: this.state.firstname3,
-            lastName: this.state.lastname3,
-            position: this.state.position3
-          },
-          {
-            firstName: this.state.firstname4,
-            lastName: this.state.lastname4,
-            position: this.state.position4
-          },
-          {
-            firstName: this.state.firstname5,
-            lastName: this.state.lastname5,
-            position: this.state.position5
-          },
-          {
-            firstName: this.state.firstname6,
-            lastName: this.state.lastname6,
-            position: this.state.position6
-          },
-          {
-            firstName: this.state.firstname7,
-            lastName: this.state.lastname7,
-            position: this.state.position7
-          },
-          {
-            firstName: this.state.firstname8,
-            lastName: this.state.lastname8,
-            position: this.state.position8
-          },
-          {
-            firstName: this.state.firstname9,
-            lastName: this.state.lastName9,
-            position: this.state.position9
-          },
-          {
-            firstName: this.state.firstname10,
-            lastName: this.state.lastname10,
-            position: this.state.position10
-          },
-          {
-            firstName: this.state.firstname11,
-            lastName: this.state.lastname11,
-            position: this.state.position11
-          }
-        ]
-      })
-      .then(() => {
-        console.log('success')
-      })
-  }
-
   render() {
+    let team = this.props.teams.filter(team => {
+      return team._id === this.props.match.params.id
+    })
+
     return (
       <div>
         <form>
@@ -187,8 +21,8 @@ class EditTeam extends Component {
             <input
               type="text"
               name="name"
-              onChange={this.handleChange}
-              value={this.state.name}
+              onChange={this.props.handleEditInput}
+              defaultValue={team[0].name}
             />
           </div>
           <div>
@@ -197,22 +31,32 @@ class EditTeam extends Component {
               type="text"
               name="firstname"
               placeholder="First Name"
-              onChange={this.handleChange}
-              value={this.state.firstname}
+              onChange={this.props.handleEditInput}
+              defaultValue={team[0].captain.firstName}
             />
             <input
               type="text"
               name="lastname"
               placeholder="Last Name"
-              onChange={this.handleChange}
-              value={this.state.lastname}
+              onChange={this.props.handleEditInput}
+              defaultValue={team[0].captain.lastName}
             />
+            <select
+              name="position"
+              defaultValue={team[0].captain.position}
+              onChange={this.props.handleEditInput}
+            >
+              <option value="F">Forward</option>
+              <option value="M">Midfielder</option>
+              <option value="D">Defender</option>
+              <option value="GK">Goalkeeper</option>
+            </select>
             <input
               type="text"
               name="email"
               placeholder="Email"
-              onChange={this.handleChange}
-              value={this.state.email}
+              onChange={this.props.handleEditInput}
+              defaultValue={team[0].captain.email}
             />
           </div>
           <div>
@@ -221,20 +65,20 @@ class EditTeam extends Component {
               type="text"
               name="firstname1"
               placeholder="First Name"
-              onChange={this.handleChange}
-              value={this.state.firstname1}
+              onChange={this.props.handleEditInput}
+              defaultValue={team[0].players[0].firstName}
             />
             <input
               type="text"
               name="lastname1"
               placeholder="Last Name"
-              onChange={this.handleChange}
-              value={this.state.lastname1}
+              onChange={this.props.handleEditInput}
+              defaultValue={team[0].players[0].lastName}
             />
             <select
               name="position1"
-              value={this.state.position1}
-              onChange={this.handleChange}
+              defaultValue={team[0].players[0].position}
+              onChange={this.props.handleEditInput}
             >
               <option value="F">Forward</option>
               <option value="M">Midfielder</option>
@@ -248,20 +92,20 @@ class EditTeam extends Component {
               type="text"
               name="firstname2"
               placeholder="First Name"
-              onChange={this.handleChange}
-              value={this.state.firstname2}
+              onChange={this.props.handleEditInput}
+              defaultValue={team[0].players[1].firstName}
             />
             <input
               type="text"
               name="lastname2"
               placeholder="Last Name"
-              onChange={this.handleChange}
-              value={this.state.lastname2}
+              onChange={this.props.handleEditInput}
+              defaultValue={team[0].players[1].lastName}
             />
             <select
               name="position2"
-              value={this.state.position2}
-              onChange={this.handleChange}
+              defaultValue={team[0].players[1].position}
+              onChange={this.props.handleEditInput}
             >
               <option value="F">Forward</option>
               <option value="M">Midfielder</option>
@@ -275,20 +119,20 @@ class EditTeam extends Component {
               type="text"
               name="firstname3"
               placeholder="First Name"
-              onChange={this.handleChange}
-              value={this.state.firstname3}
+              onChange={this.props.handleEditInput}
+              defaultValue={team[0].players[2].firstName}
             />
             <input
               type="text"
               name="lastname3"
               placeholder="Last Name"
-              onChange={this.handleChange}
-              value={this.state.lastname3}
+              onChange={this.props.handleEditInput}
+              defaultValue={team[0].players[2].lastName}
             />
             <select
               name="position3"
-              value={this.state.position3}
-              onChange={this.handleChange}
+              defaultValue={team[0].players[2].position}
+              onChange={this.props.handleEditInput}
             >
               <option value="F">Forward</option>
               <option value="M">Midfielder</option>
@@ -302,20 +146,20 @@ class EditTeam extends Component {
               type="text"
               name="firstname4"
               placeholder="First Name"
-              onChange={this.handleChange}
-              value={this.state.firstname4}
+              onChange={this.props.handleEditInput}
+              defaultValue={team[0].players[3].firstName}
             />
             <input
               type="text"
               name="lastname4"
               placeholder="Last Name"
-              onChange={this.handleChange}
-              value={this.state.lastname4}
+              onChange={this.props.handleEditInput}
+              defaultValue={team[0].players[3].lastName}
             />
             <select
               name="position4"
-              value={this.state.position4}
-              onChange={this.handleChange}
+              defaultValue={team[0].players[3].position}
+              onChange={this.props.handleEditInput}
             >
               <option value="F">Forward</option>
               <option value="M">Midfielder</option>
@@ -329,20 +173,20 @@ class EditTeam extends Component {
               type="text"
               name="firstname5"
               placeholder="First Name"
-              onChange={this.handleChange}
-              value={this.state.firstname5}
+              onChange={this.props.handleEditInput}
+              defaultValue={team[0].players[4].firstName}
             />
             <input
               type="text"
               name="lastname5"
               placeholder="Last Name"
-              onChange={this.handleChange}
-              value={this.state.lastname5}
+              onChange={this.props.handleEditInput}
+              defaultValue={team[0].players[4].lastName}
             />
             <select
               name="position5"
-              value={this.state.position5}
-              onChange={this.handleChange}
+              defaultValue={team[0].players[4].position}
+              onChange={this.props.handleEditInput}
             >
               <option value="F">Forward</option>
               <option value="M">Midfielder</option>
@@ -356,20 +200,20 @@ class EditTeam extends Component {
               type="text"
               name="firstname6"
               placeholder="First Name"
-              onChange={this.handleChange}
-              value={this.state.firstname6}
+              onChange={this.props.handleEditInput}
+              defaultValue={team[0].players[5].firstName}
             />
             <input
               type="text"
               name="lastname6"
               placeholder="Last Name"
-              onChange={this.handleChange}
-              value={this.state.lastname6}
+              onChange={this.props.handleEditInput}
+              defaultValue={team[0].players[5].lastName}
             />
             <select
               name="position6"
-              value={this.state.position6}
-              onChange={this.handleChange}
+              defaultValue={team[0].players[5].position}
+              onChange={this.props.handleEditInput}
             >
               <option value="F">Forward</option>
               <option value="M">Midfielder</option>
@@ -383,20 +227,20 @@ class EditTeam extends Component {
               type="text"
               name="firstname7"
               placeholder="First Name"
-              onChange={this.handleChange}
-              value={this.state.firstname7}
+              onChange={this.props.handleEditInput}
+              defaultValue={team[0].players[6].firstName}
             />
             <input
               type="text"
               name="lastname7"
               placeholder="Last Name"
-              onChange={this.handleChange}
-              value={this.state.lastname7}
+              onChange={this.props.handleEditInput}
+              defaultValue={team[0].players[6].lastName}
             />
             <select
               name="position7"
-              value={this.state.position7}
-              onChange={this.handleChange}
+              defaultValue={team[0].players[6].position}
+              onChange={this.props.handleEditInput}
             >
               <option value="F">Forward</option>
               <option value="M">Midfielder</option>
@@ -410,20 +254,20 @@ class EditTeam extends Component {
               type="text"
               name="firstname8"
               placeholder="First Name"
-              onChange={this.handleChange}
-              value={this.state.firstname8}
+              onChange={this.props.handleEditInput}
+              defaultValue={team[0].players[7].firstName}
             />
             <input
               type="text"
               name="lastname8"
               placeholder="Last Name"
-              onChange={this.handleChange}
-              value={this.state.lastname8}
+              onChange={this.props.handleEditInput}
+              defaultValue={team[0].players[7].lastName}
             />
             <select
               name="position8"
-              value={this.state.position8}
-              onChange={this.handleChange}
+              defaultValue={team[0].players[7].position}
+              onChange={this.props.handleEditInput}
             >
               <option value="F">Forward</option>
               <option value="M">Midfielder</option>
@@ -437,20 +281,20 @@ class EditTeam extends Component {
               type="text"
               name="firstname9"
               placeholder="First Name"
-              onChange={this.handleChange}
-              value={this.state.firstname9}
+              onChange={this.props.handleEditInput}
+              defaultValue={team[0].players[8].firstName}
             />
             <input
               type="text"
               name="lastname9"
               placeholder="Last Name"
-              onChange={this.handleChange}
-              value={this.state.lastname9}
+              onChange={this.props.handleEditInput}
+              defaultValue={team[0].players[8].lastName}
             />
             <select
               name="position9"
-              value={this.state.position9}
-              onChange={this.handleChange}
+              defaultValue={team[0].players[8].position}
+              onChange={this.props.handleEditInput}
             >
               <option value="F">Forward</option>
               <option value="M">Midfielder</option>
@@ -464,20 +308,20 @@ class EditTeam extends Component {
               type="text"
               name="firstname10"
               placeholder="First Name"
-              onChange={this.handleChange}
-              value={this.state.firstname10}
+              onChange={this.props.handleEditInput}
+              defaultValue={team[0].players[9].firstName}
             />
             <input
               type="text"
               name="lastname10"
               placeholder="Last Name"
-              onChange={this.handleChange}
-              value={this.state.lastname10}
+              onChange={this.props.handleEditInput}
+              defaultValue={team[0].players[9].lastName}
             />
             <select
               name="position10"
-              value={this.state.position10}
-              onChange={this.handleChange}
+              defaultValue={team[0].players[9].position}
+              onChange={this.props.handleEditInput}
             >
               <option value="F">Forward</option>
               <option value="M">Midfielder</option>
@@ -489,8 +333,8 @@ class EditTeam extends Component {
             <label htmlFor="color">Team Color:</label>
             <select
               name="color"
-              value={this.state.color}
-              onChange={this.handleChange}
+              defaultValue={team[0].color}
+              onChange={this.props.handleEditInput}
             >
               <option value="red">Red</option>
               <option value="blue">Blue</option>
@@ -505,13 +349,15 @@ class EditTeam extends Component {
             </select>
           </div>
           <div>
-            <button
-              id={this.props.match.params.id}
-              type="submit"
-              onClick={this.handleSubmit}
-            >
-              Submit
-            </button>
+            <Link to="/teams">
+              <button
+                id={this.props.match.params.id}
+                type="submit"
+                onClick={this.props.handleEditSubmit}
+              >
+                Submit
+              </button>
+            </Link>
           </div>
         </form>
       </div>

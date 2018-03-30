@@ -1,0 +1,13 @@
+.teams {
+  display: flex;
+  flex-wrap: wrap;
+  margin: auto 0;
+  justify-content: space-around;
+  padding: 50px;
+  border: groove;
+  background-color: #2b2c2d;
+}
+
+a:hover {
+  color: rgb(0, 255, 213);
+}

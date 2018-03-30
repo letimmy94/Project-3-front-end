@@ -1,33 +1,9 @@
 import React, { Component } from 'react'
-import axios from 'axios'
+import { Link } from 'react-router-dom'
+
 import './SignupStyle.css'
 
 class Signup extends Component {
-  // constructor() {
-  //   super()
-  //   this.state = {}
-  //   this.handleInput = this.handleInput.bind(this)
-  //   this.handleSubmit = this.handleSubmit.bind(this)
-  // }
-
-  // handleInput(e) {
-  //   this.setState({
-  //     [e.target.name]: e.target.value
-  //   })
-  // }
-
-  // handleSubmit(e) {
-  //   e.preventDefault()
-  //   axios
-  //     .post('http://localhost:4000/users', {
-  //       password: this.state.password,
-  //       email: this.state.email
-  //     })
-  //     .then(() => {
-  //       console.log('success')
-  //     })
-  // }
-
   render() {
     return (
       <div className="signupstyle">
@@ -57,9 +33,11 @@ class Signup extends Component {
               onChange={this.props.handleInput}
             />
           </div>
-          <button type="submit" onClick={this.props.handleSignUp}>
-            Create an Account!
-          </button>
+          <Link to="/teams">
+            <button type="submit" onClick={this.props.handleSignUp}>
+              Create an Account!
+            </button>
+          </Link>
         </form>
       </div>
     )
