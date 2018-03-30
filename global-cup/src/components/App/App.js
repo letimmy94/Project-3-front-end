@@ -19,21 +19,19 @@ class App extends Component {
       email: '',
       password: '',
       isLoggedIn: false,
-      newTeam: {}
+      newTeam: {},
+      editTeam: {}
     }
 
     this.handleLogOut = this.handleLogOut.bind(this)
     this.handleInput = this.handleInput.bind(this)
     this.handleLogIn = this.handleLogIn.bind(this)
     this.handleSignUp = this.handleSignUp.bind(this)
-    this.updateBigStateInApp = this.updateBigStateInApp.bind(this)
     this.deleteTeam = this.deleteTeam.bind(this)
     this.handleNewTeamInput = this.handleNewTeamInput.bind(this)
     this.handleNewTeamSubmit = this.handleNewTeamSubmit.bind(this)
-  }
-
-  updateBigStateInApp(data) {
-    this.setState({ teams: data })
+    this.handleEditInput = this.handleEditInput.bind(this)
+    this.handleEditSubmit = this.handleEditSubmit.bind(this)
   }
 
   handleNewTeamInput(e) {
@@ -120,6 +118,90 @@ class App extends Component {
       })
   }
 
+  handleEditInput(e) {
+    let team = { ...this.state.editTeam }
+    let prop = [e.target.name]
+    let value = e.target.value
+    let editTeam = Object.assign({}, team, { [prop]: value })
+    this.setState({
+      editTeam: editTeam
+    })
+  }
+
+  handleEditSubmit(e) {
+    let teamId = e.target.id
+    axios
+      .put(`http://localhost:4000/teams/${teamId}`, {
+        name: this.state.editTeam.name,
+        color: this.state.editTeam.color,
+        captain: {
+          firstName: this.state.editTeam.firstname,
+          lastName: this.state.editTeam.lastname,
+          email: this.state.editTeam.email
+        },
+        players: [
+          {
+            firstName: this.state.editTeam.firstname1,
+            lastName: this.state.editTeam.lastname1,
+            position: this.state.editTeam.position1
+          },
+          {
+            firstName: this.state.editTeam.firstname2,
+            lastName: this.state.editTeam.lastname2,
+            position: this.state.editTeam.position2
+          },
+          {
+            firstName: this.state.editTeam.firstname3,
+            lastName: this.state.editTeam.lastname3,
+            position: this.state.editTeam.position3
+          },
+          {
+            firstName: this.state.editTeam.firstname4,
+            lastName: this.state.editTeam.lastname4,
+            position: this.state.editTeam.position4
+          },
+          {
+            firstName: this.state.editTeam.firstname5,
+            lastName: this.state.editTeam.lastname5,
+            position: this.state.editTeam.position5
+          },
+          {
+            firstName: this.state.editTeam.firstname6,
+            lastName: this.state.editTeam.lastname6,
+            position: this.state.editTeam.position6
+          },
+          {
+            firstName: this.state.editTeam.firstname7,
+            lastName: this.state.editTeam.lastname7,
+            position: this.state.editTeam.position7
+          },
+          {
+            firstName: this.state.editTeam.firstname8,
+            lastName: this.state.editTeam.lastname8,
+            position: this.state.editTeam.position8
+          },
+          {
+            firstName: this.state.editTeam.firstname9,
+            lastName: this.state.editTeam.lastName9,
+            position: this.state.editTeam.position9
+          },
+          {
+            firstName: this.state.editTeam.firstname10,
+            lastName: this.state.editTeam.lastname10,
+            position: this.state.editTeam.position10
+          },
+          {
+            firstName: this.state.editTeam.firstname11,
+            lastName: this.state.editTeam.lastname11,
+            position: this.state.editTeam.position11
+          }
+        ]
+      })
+      .then(res => {
+        this.setState({ teams: res.data, editTeam: {} })
+      })
+  }
+
   deleteTeam(e) {
     let teamId = e.target.id
     axios
@@ -144,7 +226,6 @@ class App extends Component {
         this.setState({
           teams: teams
         })
-        console.log(this.state)
       })
     if (localStorage.token) {
       this.setState({
@@ -231,8 +312,10 @@ class App extends Component {
             render={props => {
               return (
                 <EditTeam
-                  updateBigStateInApp={this.updateBigStateInApp}
+                  handleEditInput={this.handleEditInput}
+                  handleEditSubmit={this.handleEditSubmit}
                   {...props}
+                  teams={this.state.teams}
                 />
               )
             }}

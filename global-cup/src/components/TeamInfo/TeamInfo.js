@@ -8,9 +8,7 @@ class TeamInfo extends Component {
     let team = this.props.teams.filter(team => {
       return team._id === this.props.match.params.id
     })
-    if (team.length === 0) {
-      return <h1>No Information found for {this.props.match.params.symbol}.</h1>
-    }
+
     console.log(team)
     return (
       <div className="teamContainer">
