@@ -1,7 +1,5 @@
 import React, { Component } from 'react'
-// import axios from 'axios'
 import Container from '../Container/Container'
-import Logo from '../Logo/Logo'
 import NavBar from '../NavBar/NavBar'
 import TeamForm from '../TeamForm/TeamForm'
 import Signup from '../Signup/Signup'
@@ -11,7 +9,7 @@ import './App.css'
 import TeamInfo from '../TeamInfo/TeamInfo'
 import EditTeam from '../EditTeam/EditTeam'
 import axios from 'axios'
-import { Route, Link, Switch, Redirect } from 'react-router-dom'
+import { Route, Switch } from 'react-router-dom'
 
 class App extends Component {
   constructor() {
@@ -20,7 +18,8 @@ class App extends Component {
       teams: [],
       email: '',
       password: '',
-      isLoggedIn: false
+      isLoggedIn: false,
+      newTeam: {}
     }
 
     this.handleLogOut = this.handleLogOut.bind(this)
@@ -28,10 +27,108 @@ class App extends Component {
     this.handleLogIn = this.handleLogIn.bind(this)
     this.handleSignUp = this.handleSignUp.bind(this)
     this.updateBigStateInApp = this.updateBigStateInApp.bind(this)
+    this.deleteTeam = this.deleteTeam.bind(this)
+    this.handleNewTeamInput = this.handleNewTeamInput.bind(this)
+    this.handleNewTeamSubmit = this.handleNewTeamSubmit.bind(this)
   }
 
   updateBigStateInApp(data) {
     this.setState({ teams: data })
+  }
+
+  handleNewTeamInput(e) {
+    let team = { ...this.state.newTeam }
+    let prop = [e.target.name]
+    let value = e.target.value
+    let newTeam = Object.assign({}, team, { [prop]: value })
+    this.setState({
+      newTeam: newTeam
+    })
+  }
+
+  handleNewTeamSubmit(e) {
+    // e.preventDefault()
+    axios
+      .post('http://localhost:4000/teams', {
+        name: this.state.newTeam.name,
+        color: this.state.newTeam.color,
+        captain: {
+          firstName: this.state.newTeam.firstname,
+          lastName: this.state.newTeam.lastname,
+          email: this.state.newTeam.email
+        },
+        players: [
+          {
+            firstName: this.state.newTeam.firstname1,
+            lastName: this.state.newTeam.lastname1,
+            position: this.state.newTeam.position1
+          },
+          {
+            firstName: this.state.newTeam.firstname2,
+            lastName: this.state.newTeam.lastname2,
+            position: this.state.newTeam.position2
+          },
+          {
+            firstName: this.state.newTeam.firstname3,
+            lastName: this.state.newTeam.lastname3,
+            position: this.state.newTeam.position3
+          },
+          {
+            firstName: this.state.newTeam.firstname4,
+            lastName: this.state.newTeam.lastname4,
+            position: this.state.newTeam.position4
+          },
+          {
+            firstName: this.state.newTeam.firstname5,
+            lastName: this.state.newTeam.lastname5,
+            position: this.state.newTeam.position5
+          },
+          {
+            firstName: this.state.newTeam.firstname6,
+            lastName: this.state.newTeam.lastname6,
+            position: this.state.newTeam.position6
+          },
+          {
+            firstName: this.state.newTeam.firstname7,
+            lastName: this.state.newTeam.lastname7,
+            position: this.state.newTeam.position7
+          },
+          {
+            firstName: this.state.newTeam.firstname8,
+            lastName: this.state.newTeam.lastname8,
+            position: this.state.newTeam.position8
+          },
+          {
+            firstName: this.state.newTeam.firstname9,
+            lastName: this.state.newTeam.lastName9,
+            position: this.state.newTeam.position9
+          },
+          {
+            firstName: this.state.newTeam.firstname10,
+            lastName: this.state.newTeam.lastname10,
+            position: this.state.newTeam.position10
+          },
+          {
+            firstName: this.state.newTeam.firstname11,
+            lastName: this.state.newTeam.lastname11,
+            position: this.state.newTeam.position11
+          }
+        ]
+      })
+      .then(res => {
+        this.setState({ teams: res.data, newTeam: {} })
+      })
+  }
+
+  deleteTeam(e) {
+    let teamId = e.target.id
+    axios
+      .delete(`http://localhost:4000/teams/${teamId}`, {
+        params: { id: teamId }
+      })
+      .then(res => {
+        this.setState({ teams: res.data })
+      })
   }
 
   componentDidMount() {
@@ -121,7 +218,12 @@ class App extends Component {
           <Route
             path="/new"
             render={() => {
-              return <TeamForm updateBigStateInApp={this.updateBigStateInApp} />
+              return (
+                <TeamForm
+                  handleNewTeamInput={this.handleNewTeamInput}
+                  handleNewTeamSubmit={this.handleNewTeamSubmit}
+                />
+              )
             }}
           />
           <Route
@@ -140,7 +242,8 @@ class App extends Component {
             render={props => {
               return (
                 <TeamInfo
-                  updateBigStateInApp={this.updateBigStateInApp}
+                  teams={this.state.teams}
+                  deleteTeam={this.deleteTeam}
                   {...props}
                 />
               )

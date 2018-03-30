@@ -1,8 +1,6 @@
 import React, { Component } from 'react'
 import './NavBar.css'
-import { Route, Link } from 'react-router-dom'
-import LogOut from '../LogOut/LogOut'
-import Login from '../Login/Login'
+import { Link } from 'react-router-dom'
 
 class NavBar extends Component {
   render() {
@@ -15,7 +13,7 @@ class NavBar extends Component {
       )
     } else {
       newNav = (
-        <div className>
+        <div>
           <Link to="/login">Log In</Link>
           <Link to="/signup">Sign Up</Link>
         </div>

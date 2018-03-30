@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import axios from 'axios'
-import { Route, Link, Switch, Redirect } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 class EditTeam extends Component {
   constructor(props) {
