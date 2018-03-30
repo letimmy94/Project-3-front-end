@@ -4,15 +4,10 @@
   margin: auto 0;
   justify-content: space-around;
   padding: 50px;
-  height: 250px;
   border: groove;
-  background-color: #1dcfae7c;
-}
-
-a {
-  color: black;
+  background-color: #2b2c2d;
 }
 
 a:hover {
-  color: red;
+  color: rgb(0, 255, 213);
 }

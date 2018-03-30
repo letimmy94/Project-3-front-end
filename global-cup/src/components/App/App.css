@@ -9,13 +9,14 @@ header {
   display: flex;
   margin: auto;
   justify-content: center;
-  color: #4e4e4e;
-  background-color: #1dcfae7c;
+  color: #ff0000;
+  background-color: #2b2c2d;
   border: groove;
   border-radius: 50px;
   width: 30%;
   height: 22%;
   padding: 15px;
+  font-family: 'Bungee Inline';
 }
 
 .bodyImage {
@@ -23,7 +24,7 @@ header {
   margin: auto;
   justify-content: center;
   border: groove;
-  border-radius: 50px;
+  border-radius: 100px;
 }
 
 .headerImage {

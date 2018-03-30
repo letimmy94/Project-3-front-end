@@ -10,10 +10,13 @@ class TeamList extends Component {
   }
   render() {
     let path = `/teams/${this.props.team._id}`
+    let cssStyle = {
+      background: `${this.props.team.color}`
+    }
     return (
-      <div className="each">
+      <div className="each" style={cssStyle}>
         <Link to={path}> {this.props.team.name} </Link>
-        <p> {this.props.team.color} </p>
+        <p> {this.props.team.captain.firstName} </p>
       </div>
     )
   }

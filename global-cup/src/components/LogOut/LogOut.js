@@ -13,6 +13,7 @@ class LogOut extends Component {
               value="Log Out"
               type="submit"
               onClick={this.props.handleLogOut}
+              className="logoutlink"
             />
           </Link>
         </form>

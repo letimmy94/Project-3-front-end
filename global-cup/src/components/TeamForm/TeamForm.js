@@ -405,6 +405,7 @@ class TeamForm extends Component {
               name="color"
               value={this.state.color}
               onChange={this.handleInput}
+              className="teamcolor"
             >
               <option value="red">Red</option>
               <option value="blue">Blue</option>

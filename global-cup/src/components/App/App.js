@@ -192,8 +192,19 @@ class App extends Component {
               )
             }}
           />
+          <Route
+            path="/"
+            render={() => {
+              return (
+                <img
+                  className="bodyImage"
+                  src={soccerImage}
+                  alt={'soccerImage'}
+                />
+              )
+            }}
+          />
         </Switch>
-        <img className="bodyImage" src={soccerImage} alt={'soccerImage'} />
       </div>
     )
   }

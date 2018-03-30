@@ -15,13 +15,13 @@ class NavBar extends Component {
       )
     } else {
       newNav = (
-        <div className="auth">
-          <p>
-            <Link to="/login">Log In</Link>
-          </p>
-          <p>
-            <Link to="/signup">Sign Up</Link>
-          </p>
+        <div>
+          <Link className="auth" to="/login">
+            Log In
+          </Link>
+          <Link className="auth" to="/signup">
+            Sign Up
+          </Link>
         </div>
       )
     }

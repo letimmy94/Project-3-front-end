@@ -1,0 +1,7 @@
+.logoutlink {
+  display: flex;
+  flex-wrap: wrap;
+  margin: auto 0;
+  justify-content: space-around;
+  height: 500px;
+}

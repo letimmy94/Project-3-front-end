@@ -9,3 +9,7 @@ h2 {
   flex-wrap: wrap;
   justify-content: center;
 }
+
+.teamcolor {
+  color: white;
+}
